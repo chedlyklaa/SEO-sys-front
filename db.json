@@ -1,0 +1,101 @@
+{
+  "user": [
+    {
+      "id": "admin",
+      "name": "admin",
+      "password": "admin",
+      "email": "test@gmail.com",
+      "role": "admin",
+      "isactive": true,
+      "address": {
+        "area": "chennai"
+      }
+    },
+    {
+      "id": "testuser",
+      "name": "Test User",
+      "password": "Test@1234",
+      "email": "test@in.com",
+      "role": "SEO Specialist",
+      "isactive": true
+    },
+    {
+      "id": "Jhon1",
+      "name": "NT Infotech",
+      "password": "Test@1233",
+      "email": "te@in.com",
+      "role": "SEO Specialist",
+      "isactive": false
+    },
+    {
+      "id": "ntuser",
+      "name": "ramesh",
+      "password": "Test@1234",
+      "email": "te@in.com",
+      "role": "Web redactor",
+      "isactive": true
+    },
+    {
+      "id": "hello",
+      "name": "hahahah",
+      "password": "Test1234*",
+      "email": "tes@tes.com",
+      "role": "",
+      "isactive": true
+    }
+  ],
+  "role": [
+    {
+      "code": "SEO Specialist",
+      "name": "SEO Specialist"
+    },
+    {
+      "code": "Web redactor",
+      "name": "Web redactor"
+    },
+    {
+      "code": "Developer",
+      "name": "Developer"
+    }
+  ],
+  "menu": [
+    {
+      "code": "user",
+      "name": "User"
+    },
+    {
+      "code": "customer",
+      "name": "Customer"
+    }
+  ],
+  "roleaccess": [
+    {
+      "role": "admin",
+      "menu": "user",
+      "haveedit": true,
+      "haveadd": true,
+      "havedelete": true
+    },
+    {
+      "role": "admin",
+      "menu": "customer",
+      "haveedit": true,
+      "haveadd": true,
+      "havedelete": true
+    },
+    {
+      "role": "user",
+      "menu": "user",
+      "haveedit": false,
+      "haveadd": false,
+      "havedelete": false
+    },
+    {
+      "role": "user",
+      "menu": "customer",
+      "haveedit": true,
+      "haveadd": true,
+      "havedelete": false
+    }
+  ]
+}

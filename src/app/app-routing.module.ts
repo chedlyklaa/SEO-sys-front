@@ -1,7 +1,19 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './guard/auth.guard';
+import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { UserComponent } from './userlisting/userlisting.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+ {component:LoginComponent,path:'login'},
+ {component:RegisterComponent,path:'register'},
+ {component:ChangePasswordComponent,path:'changepassword'},
+ {component:HomeComponent,path:'',canActivate:[AuthGuard]},
+ {component:UserComponent,path:'userlisting',canActivate:[AuthGuard]},
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
