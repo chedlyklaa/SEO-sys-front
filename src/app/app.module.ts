@@ -13,6 +13,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { UpdatepopupComponent } from './updatepopup/updatepopup.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     HomeComponent,
     UserComponent,
     UpdatepopupComponent,
+    ForgetPasswordComponent,
     
   ],
   imports: [

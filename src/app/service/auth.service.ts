@@ -17,6 +17,9 @@ export class AuthService {
   GetUserbyCode(id:any){
     return this.http.get(this.apiurl+'/'+id);
   }
+  GetUserbyEmail(email:any){
+    return this.http.get(this.apiurl+'?email='+email);
+  }
   Getall(){
     return this.http.get(this.apiurl);
   }
