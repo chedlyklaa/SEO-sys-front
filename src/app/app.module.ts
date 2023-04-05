@@ -12,7 +12,6 @@ import {MaterialModule} from 'src/material.module';
 import {HttpClientModule} from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { UpdatepopupComponent } from './updatepopup/updatepopup.component';
-import { ChangePasswordComponent } from './change-password/change-password.component';
 import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
@@ -23,7 +22,6 @@ import { MatDialogModule } from '@angular/material/dialog';
     HomeComponent,
     UserComponent,
     UpdatepopupComponent,
-    ChangePasswordComponent,
     
   ],
   imports: [

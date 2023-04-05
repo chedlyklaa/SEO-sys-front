@@ -1,4 +1,46 @@
-<mat-card>
+
+<div class="form">
+  <div class="form__box">
+    <div class="form__left">
+      <div class="form__padding"><img class="form__image" src="assets\Logo\Logo_ijeni_horizontal.svg"/></div>
+    </div>
+    <div class="form__right">
+      <div class="form__padding-right">
+
+        <h2>Registeration</h2>
+    
+    
+      <form class="example-form" [formGroup]="registerform" (ngSubmit)="proceedregister()">
+            <form class="example-full-width">
+              <label>Username</label>
+              <input class="form__email" type="text" placeholder="Username"  formControlName="id" >
+            </form>
+            <form class="example-full-width">
+              <label>Name</label>
+              <input class="form__email" type="text" placeholder="Name"  formControlName="name" >
+            </form>
+              <form class="example-full-width">
+                <label>Password</label>
+                <input class="form__password" type="text" placeholder="******"  type="password" formControlName="password" >
+              </form>
+              <form class="example-full-width">
+                <label>Email</label>
+                <input class="form__email" type="text" placeholder="Email"  formControlName="email" >
+              </form>
+            
+              <div>
+                <button  >Submit</button>
+                <a class="form__link" routerLink="/login" >Back to Login</a>
+                
+              </div>
+          </form>
+    
+  </div>
+</div>
+</div>
+</div>
+
+<!--<mat-card>
     <mat-card-header>
         <h2>Registeration</h2>
     </mat-card-header>
@@ -27,5 +69,5 @@
           </form>
     </mat-card-content>
   </mat-card>
-
+-->
 
