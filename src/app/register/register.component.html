@@ -11,22 +11,19 @@
     
     
       <form class="example-form" [formGroup]="registerform" (ngSubmit)="proceedregister()">
-            <form class="example-full-width">
+            
               <label>Username</label>
               <input class="form__email" type="text" placeholder="Username"  formControlName="id" >
-            </form>
-            <form class="example-full-width">
+            
               <label>Name</label>
               <input class="form__email" type="text" placeholder="Name"  formControlName="name" >
-            </form>
-              <form class="example-full-width">
+            
                 <label>Password</label>
                 <input class="form__password" type="text" placeholder="******"  type="password" formControlName="password" >
-              </form>
-              <form class="example-full-width">
+              
                 <label>Email</label>
                 <input class="form__email" type="text" placeholder="Email"  formControlName="email" >
-              </form>
+              
             
               <div>
                 <button  >Submit</button>

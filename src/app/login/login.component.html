@@ -10,14 +10,11 @@
     
     <mat-card-content>
         <form class="example-form" [formGroup]="loginform" (ngSubmit)="proceedlogin()">
-            <form class="example-full-width">
+            
               <label>Username</label>
               <input class="form__email" type="text" placeholder="Email"  formControlName="id" >
-            </form>
-              <form class="example-full-width">
                 <label>Password</label>
                 <input class="form__password" type="text" placeholder="******"  type="password" formControlName="password" >
-              </form>
             
               <div>
                 <button >Login</button>
