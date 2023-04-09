@@ -12,25 +12,27 @@
           <mat-card-content>
             <form
               class="example-form"
-              [formGroup]="loginform"
               (ngSubmit)="proceedlogin()"
             >
-              <label>Username</label>
+              <label>Email</label>
               <input
                 class="form__email"
                 type="text"
                 placeholder="Email"
-                formControlName="id"
+                [(ngModel)]="email"
+                name="email"
               />
+
               <label>Password</label>
               <input
                 class="form__password"
                 type="text"
                 placeholder="******"
                 type="password"
-                formControlName="password"
+                [(ngModel)]="password"
+                name="password"
               />
-
+              <div *ngIf = "error" name="error" class="error">{{error}}</div>
               <div>
                 <button>Login</button>
                 <a class="form__link" routerLink="/register">New User?</a>

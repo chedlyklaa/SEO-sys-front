@@ -12,7 +12,7 @@ const routes: Routes = [
  {component:LoginComponent,path:'login'},
  {component:RegisterComponent,path:'register'},
   {component:ForgetPasswordComponent,path:'forgetpassword'},
-  {component:HomeComponent,path:'',canActivate:[AuthGuard]},
+  {component:HomeComponent,path:''},
   //role guard don't work should fix it 
  {component:UserComponent,path:'userlisting',canActivate:[AuthGuard , RoleGuard], data: {role: ['admin']}},
 ];

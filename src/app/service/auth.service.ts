@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,22 +10,35 @@ export class AuthService {
   constructor(private http:HttpClient) { 
 
   }
-  apiurl='http://localhost:3000/user';
+  apiUrl='http://localhost:3000/api/auth';
+  login(email: string, password: string): Observable<any>{
+    return this.http.post<any>(`${this.apiUrl}/login`, { email: email, password: password })
+  }
 
+  resetPassword(email: string) : Observable<any>{
+    return this.http.post<any>(`${this.apiUrl}/reset-password`, { email: email})
+  }
+
+  
+
+
+
+
+  // User management ==> new service called userSevice not here!!!
   RegisterUser(inputdata:any){
-    return this.http.post(this.apiurl,inputdata)
+    return this.http.post(this.apiUrl,inputdata)
   }
   GetUserbyCode(id:any){
-    return this.http.get(this.apiurl+'/'+id);
+    return this.http.get(this.apiUrl+'/'+id);
   }
   GetUserbyEmail(email:any){
-    return this.http.get(this.apiurl+'?email='+email);
+    return this.http.get(this.apiUrl+'?email='+email);
   }
   Getall(){
-    return this.http.get(this.apiurl);
+    return this.http.get(this.apiUrl);
   }
   updateuser(id:any,inputdata:any){
-    return this.http.put(this.apiurl+'/'+id,inputdata);
+    return this.http.put(this.apiUrl+'/'+id,inputdata);
   }
   getuserrole(){
     return this.http.get('http://localhost:3000/role');
