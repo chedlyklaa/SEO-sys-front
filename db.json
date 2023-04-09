@@ -16,7 +16,7 @@
       "name": "Test User",
       "password": "Test@1234",
       "email": "test@in.com",
-      "role": "SEO Specialist",
+      "role": "Developer",
       "isactive": true
     },
     {
@@ -98,4 +98,4 @@
       "havedelete": false
     }
   ]
-} // hello world
+}
