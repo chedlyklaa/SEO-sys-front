@@ -6,7 +6,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
-import { UserComponent } from './userlisting/userlisting.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MaterialModule} from 'src/material.module';
 import {HttpClientModule} from '@angular/common/http';
@@ -15,6 +14,7 @@ import { UpdatepopupComponent } from './updatepopup/updatepopup.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
+import { UserListComponent } from './user-list/user-list.component';
 
 @NgModule({
   declarations: [
@@ -22,10 +22,10 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
     RegisterComponent,
     LoginComponent,
     HomeComponent,
-    UserComponent,
     UpdatepopupComponent,
     ForgetPasswordComponent,
     ChangePasswordComponent,
+    UserListComponent,
     
   ],
   imports: [

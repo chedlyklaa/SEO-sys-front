@@ -10,25 +10,24 @@
         <h2>Registeration</h2>
     
     
-      <form class="example-form" [formGroup]="registerform" (ngSubmit)="proceedregister()">
+      <form class="example-form" (ngSubmit)="proceedregister()">
             
               <label>Username</label>
-              <input class="form__email" type="text" placeholder="Username"  formControlName="id" >
+              <input class="form__email" type="text" placeholder="Username" [(ngModel)]="username" name="username">
             
-              <label>Name</label>
-              <input class="form__email" type="text" placeholder="Name"  formControlName="name" >
-            
-                <label>Password</label>
-                <input class="form__password" type="text" placeholder="******"  type="password" formControlName="password" >
+              <label>Email</label>
+              <input class="form__email" type="text" placeholder="Email" [(ngModel)]="email" name="email">
+
+              <label>Password</label>
+              <input class="form__password" type="password" placeholder="password" [(ngModel)]="password" name="password">
+  
               
-                <label>Email</label>
-                <input class="form__email" type="text" placeholder="Email"  formControlName="email" >
-              
-            
+              <label>Role</label>
+              <input class="form__email" type="text" placeholder="Role" [(ngModel)]="role" name="role">
+
+              <div class="error" *ngIf="error">{{error}}</div>
               <div>
                 <button  >Submit</button>
-                <a class="form__link" routerLink="/login" >Back to Login</a>
-                
               </div>
           </form>
     

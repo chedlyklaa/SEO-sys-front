@@ -110,3 +110,9 @@ button {
   font-size: 14px;
   position: relative;
 }
+
+.error {
+  color: red;
+  font-size: 0.8rem;
+  margin-bottom: 1rem;
+}
