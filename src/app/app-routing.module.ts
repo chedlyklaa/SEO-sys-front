@@ -14,7 +14,7 @@ const routes: Routes = [
   {component:ForgetPasswordComponent,path:'forgetpassword'},
   {component:HomeComponent,path:''},
   //role guard don't work should fix it 
- {component:UserComponent,path:'userlisting',canActivate:[AuthGuard , RoleGuard], data: {role: ['admin']}},
+ {component:UserComponent,path:'userlisting',},
 ];
 
 @NgModule({
