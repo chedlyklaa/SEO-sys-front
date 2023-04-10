@@ -19,7 +19,9 @@ export class AuthService {
     return this.http.post<any>(`${this.apiUrl}/reset-password`, { email: email})
   }
 
-  
+  changePassword(resetToken : string, newPassword : string) : Observable<any>{
+    return this.http.put<any>(`${this.apiUrl}/reset-password/${resetToken}`, {newPassword})
+  }
 
 
 

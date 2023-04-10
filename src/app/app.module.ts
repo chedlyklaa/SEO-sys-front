@@ -14,6 +14,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { UpdatepopupComponent } from './updatepopup/updatepopup.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { ForgetPasswordComponent } from './forget-password/forget-password.compo
     UserComponent,
     UpdatepopupComponent,
     ForgetPasswordComponent,
+    ChangePasswordComponent,
     
   ],
   imports: [

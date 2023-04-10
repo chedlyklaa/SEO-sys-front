@@ -13,11 +13,13 @@ export class ForgetPasswordComponent {
   result: any;
   email : string = ""
   error : string = ""
+  message : string = ""
   //to modify to get user by email and verify the existance of the email and send the mail to the user
   sendResetPasswordEmail() {
     this.authService.resetPassword(this.email).subscribe(
       response => {
-        console.log(response)
+        this.message = response.message
+        console.log(this.message)
       },
       error => {
         console.log(error.error.error)
