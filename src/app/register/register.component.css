@@ -3,16 +3,16 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Ubuntu", sans-serif;
   text-decoration: none;
 }
 
-.form {
+.card {
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
   width: 50%;
+  height: 70%;
   
 }
 .form__box {
@@ -21,8 +21,8 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background: #fff;
   border-radius: 40px;
+  color: white;
 }
 .form__left {
   width: 50%;
@@ -73,7 +73,10 @@ h2 {
 .form__email {
   position: relative;
 }
-
+.buttons{
+  display: flex;
+  justify-content: space-around;
+}
 input {
   display: block;
   width: 100%;
@@ -100,16 +103,33 @@ a:hover {
   color: #ff3f70;
 }
 button {
-  display: block;
-  width: 100%;
+  display: flex;
+  width: 40%;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
   margin-bottom: 25px;
   height: 35px;
   border-radius: 20px;
   border: none;
-  background: #ffcc09;
   padding: 10px;
   font-size: 14px;
   position: relative;
+}
+.btn{
+  display: flex;
+  width: 40%;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 25px;
+  height: 35px;
+  border-radius: 20px;
+  border: none;
+  padding: 10px;
+  font-size: 14px;
+  position: relative;
+
 }
 
 .error {

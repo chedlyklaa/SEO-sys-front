@@ -1,4 +1,4 @@
-<div class="form">
+<div class="card bg-dark">
   <div class="form__box">
     <div class="form__right">
       <div class="form__padding-right">
@@ -6,16 +6,16 @@
         <h2>Registeration</h2>
     
     
-      <form class="example-form" (ngSubmit)="proceedregister()">
+      <form (ngSubmit)="proceedregister()">
             
               <label>Username</label>
-              <input class="form__email" type="text" placeholder="Username" [(ngModel)]="username" name="username">
+              <input type="text" placeholder="Username" [(ngModel)]="username" name="username">
             
               <label>Email</label>
-              <input class="form__email" type="emil" placeholder="Email" [(ngModel)]="email" name="email">
+              <input type="emil" placeholder="Email" [(ngModel)]="email" name="email">
 
               <label>Password</label>
-              <input class="form__password" type="password" placeholder="password" [(ngModel)]="password" name="password">
+              <input type="password" placeholder="password" [(ngModel)]="password" name="password">
   
               
               <label>Role</label>
@@ -28,8 +28,9 @@
               </select>
 
               <div class="error" *ngIf="error">{{error}}</div>
-              <div>
-                <button  >Submit</button>
+              <div class="buttons">
+                <button class="btn btn-warning">Submit</button>
+                <a routerLink="/users" class="btn btn-outline-warning" >Go Back to Users</a>
               </div>
           </form>
     
@@ -38,34 +39,5 @@
 </div>
 </div>
 
-<!--<mat-card>
-    <mat-card-header>
-        <h2>Registeration</h2>
-    </mat-card-header>
-    <mat-card-content>
-        <form class="example-form" [formGroup]="registerform" (ngSubmit)="proceedregister()">
-            <mat-form-field class="example-full-width">
-              <mat-label>Username</mat-label>
-              <input matInput formControlName="id" >
-            </mat-form-field>
-            <mat-form-field class="example-full-width">
-                <mat-label>Name</mat-label>
-                <input matInput formControlName="name" >
-              </mat-form-field>
-              <mat-form-field class="example-full-width">
-                <mat-label>Password</mat-label>
-                <input type="password" matInput formControlName="password" >
-              </mat-form-field>
-              <mat-form-field class="example-full-width">
-                <mat-label>Email</mat-label>
-                <input matInput formControlName="email" >
-              </mat-form-field>
-              <div>
-                <button mat-raised-button color="primary">Submit</button>
-                <a routerLink="/login" mat-raised-button color="accent">Back to Login</a>
-              </div>
-          </form>
-    </mat-card-content>
-  </mat-card>
--->
+
 

@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card bg-dark">
     <div class="card-body">
       <h1 class="card-title">Update {{user.username}} User</h1>
       <form (ngSubmit)="update()">
@@ -19,8 +19,10 @@
             <option value="developer">Developer</option>
           </select>
         </div>
-        <button type="submit" class="btn btn-primary">Update</button>
-
+        <div class="buttons">
+            <button type="submit" class="btn btn-warning">Update</button>
+            <button routerLink="/users" class="btn btn-outline-warning">Go back</button>
+        </div>
       </form>
     </div>
   </div>

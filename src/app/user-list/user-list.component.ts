@@ -27,6 +27,9 @@ export class UserListComponent {
   onUpdateComplete() {
     this.showUpdateForm = false;
   }
+  onBackToList() {
+    this.showUpdateForm = false;
+  }
 
   deleteUser(userId : string) {
       this.userService.deleteUserById(userId).subscribe(() => {

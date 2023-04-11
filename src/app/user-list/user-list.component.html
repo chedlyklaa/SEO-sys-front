@@ -31,6 +31,6 @@
   </div>
 </div>
   <div *ngIf="showUpdateForm">
-    <app-user-update [user]="selectedUser" (updated)="onUpdateComplete()"></app-user-update>
+    <app-user-update [user]="selectedUser" (updated)="onUpdateComplete()" (backToList)="onBackToList()"></app-user-update>
   </div>
   
