@@ -1,9 +1,5 @@
-
 <div class="form">
   <div class="form__box">
-    <div class="form__left">
-      <div class="form__padding"><img class="form__image" src="assets\Logo\Logo_ijeni_horizontal.svg"/></div>
-    </div>
     <div class="form__right">
       <div class="form__padding-right">
 
@@ -16,14 +12,20 @@
               <input class="form__email" type="text" placeholder="Username" [(ngModel)]="username" name="username">
             
               <label>Email</label>
-              <input class="form__email" type="text" placeholder="Email" [(ngModel)]="email" name="email">
+              <input class="form__email" type="emil" placeholder="Email" [(ngModel)]="email" name="email">
 
               <label>Password</label>
               <input class="form__password" type="password" placeholder="password" [(ngModel)]="password" name="password">
   
               
               <label>Role</label>
-              <input class="form__email" type="text" placeholder="Role" [(ngModel)]="role" name="role">
+              <select name="Role" [(ngModel)]="role" id="">
+                <option value="admin">Admin</option>
+                <option value="seo-specialist">SEO Specialist</option>
+                <option value="redactor">Redactor</option>
+                <option value="developer">Developer</option>
+
+              </select>
 
               <div class="error" *ngIf="error">{{error}}</div>
               <div>

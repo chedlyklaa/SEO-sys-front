@@ -8,6 +8,8 @@ import { UserService } from '../service/user.service';
 })
 export class UserListComponent {
   users: any[] = [];
+  selectedUser: any = {};
+  showUpdateForm = false;
 
   constructor(private userService: UserService) { }
 
@@ -18,22 +20,26 @@ export class UserListComponent {
     });
   }
 
-  addUser() {
-    // logic for adding a new user
+  updateUser(user : object) {
+    this.selectedUser = user;
+    this.showUpdateForm = true;
   }
-
-  editUser(userId : string) {
-
+  onUpdateComplete() {
+    this.showUpdateForm = false;
   }
 
   deleteUser(userId : string) {
-    this.userService.deleteUserById(userId).subscribe((user) =>{
-      const index = this.users.findIndex(u => u.id === user.id);
-      
-      // Remove the deleted user from the users array
-      this.users.splice(index, 1);
-
-    }
-    )
+      this.userService.deleteUserById(userId).subscribe(() => {
+        // Remove the deleted user from the users array
+        this.users = this.users.filter(u => u.id !== userId);
+      }, error => {
+        console.log('Error deleting user:', error);
+      }, () => {
+        // Reload the users array after deletion is complete
+        this.userService.getAllUsers().subscribe(users => {
+          this.users = users;
+        });
+      });
+    
   }
 }

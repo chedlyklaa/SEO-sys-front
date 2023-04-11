@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from '../service/auth.service';
 import { UserService } from '../service/user.service';
 
 
@@ -11,7 +10,7 @@ import { UserService } from '../service/user.service';
 })
 export class RegisterComponent {
 
-  constructor(private userService : UserService) {}
+  constructor(private userService : UserService, private router : Router) {}
   username : string = ""
   email : string = ""
   password : string = ""
@@ -21,6 +20,7 @@ export class RegisterComponent {
     this.userService.createUser(this.username, this.email, this.password, this.role).subscribe(
       response => {
         console.log(response)
+        this.router.navigate(['/users'])
       },
       error => {
         this.error = error.error.error

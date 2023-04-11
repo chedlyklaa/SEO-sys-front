@@ -1,0 +1,27 @@
+<div class="card">
+    <div class="card-body">
+      <h1 class="card-title">Update {{user.username}} User</h1>
+      <form (ngSubmit)="update()">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" class="form-control" id="username" [(ngModel)]="user.username" name="username" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email address</label>
+          <input type="email" class="form-control" id="email" [(ngModel)]="user.email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="role">Role</label>
+          <select class="form-control" id="role" [(ngModel)]="user.role" name="role" required>
+            <option value="admin">Admin</option>
+            <option value="seo-specialist">SEO Specialist</option>
+            <option value="redactor">Redactor</option>
+            <option value="developer">Developer</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Update</button>
+
+      </form>
+    </div>
+  </div>
+  

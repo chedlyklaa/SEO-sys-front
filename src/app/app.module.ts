@@ -15,6 +15,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { UserListComponent } from './user-list/user-list.component';
+import { UpdateUserComponent } from './user-update/user-update.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import { UserListComponent } from './user-list/user-list.component';
     ForgetPasswordComponent,
     ChangePasswordComponent,
     UserListComponent,
+    UpdateUserComponent,
+    NavbarComponent,
     
   ],
   imports: [

@@ -13,6 +13,9 @@ export class UserService {
   createUser(username : string, email : string, password: string, role : string){
     return this.http.post<any>(`${this.apiUrl}`, {username, email, password, roles: role})
   }
+  updateUserById(userId: string, user : object){
+    return this.http.put<any>(`${this.apiUrl}/${userId}`, user)
+  }
   deleteUserById(userId : string){
     return this.http.delete<any>(`${this.apiUrl}/${userId}`)
   }
