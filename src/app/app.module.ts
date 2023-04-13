@@ -17,6 +17,7 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
 import { UserListComponent } from './user-list/user-list.component';
 import { UpdateUserComponent } from './user-update/user-update.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { KeywordThemeComponent } from './keyword-theme/keyword-theme.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     UserListComponent,
     UpdateUserComponent,
     NavbarComponent,
+    KeywordThemeComponent
     
   ],
   imports: [

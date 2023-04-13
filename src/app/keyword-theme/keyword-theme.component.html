@@ -1,0 +1,55 @@
+<div class="card bg-dark">
+  <div class="Themes" *ngIf="!selectedKeywordTheme">
+    <h2>Keyword Themes</h2> 
+    <table class="table table-dark table-striped table-hover" *ngIf="!selectedKeywordTheme">
+      <thead>
+        <tr>
+          <th>Themes</th>
+          <th>action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let keywordTheme of keywordThemes" [class.selected]="keywordTheme === selectedKeywordTheme" (click)="selectKeywordTheme(keywordTheme)">
+          <td>{{ keywordTheme.theme }}</td>
+          <td>
+            <button class="btn btn-danger btn-sm" (click)="deleteTheme(keywordTheme)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="newThemeForm">
+      <input class="form-control" type="text" id="newTheme" [(ngModel)]="newTheme" name="newTheme" placeholder="new theme">
+      <button class="btn btn-warning" (click)="addTheme()">Add Theme</button>
+    </div>
+  </div>
+    <h2 *ngIf="selectedKeywordTheme">{{selectedKeywordTheme.theme}} Keywords</h2> 
+    <div *ngIf="selectedKeywordTheme">
+      <h3>{{ selectedKeywordTheme.theme }}</h3>
+  
+      <table class="table table-dark table-striped">
+        <thead>
+          <tr>
+            <th>Keyword</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let keyword of selectedKeywordTheme.keywords">
+            <td>{{ keyword }}</td>
+            <td>
+              <button class="btn btn-danger" (click)="deleteKeyword(keyword)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+  
+      <form (submit)="addKeyword()">
+        <div class="newThemeForm">
+          <input class="form-control" type="text" id="newKeyword" [(ngModel)]="newKeyword" name="newKeyword" placeholder="New Keywords">
+          <button class="btn btn-warning" type="submit">Add Keyword</button>
+        </div>
+        <button class="btn btn-outline-warning mb-4" (click)="backToThemes()">Go back to themes</button>
+      </form>
+    </div>
+  </div>
+  
