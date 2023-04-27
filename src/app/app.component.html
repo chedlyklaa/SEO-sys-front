@@ -1,3 +1,32 @@
-<app-navbar></app-navbar>
-<router-outlet></router-outlet>
-
+<ejs-sidebar #dockBar id="dockSidebar" [enableDock]='enableDock' [width]='width' [dockSize]='dockSize'>
+    <div class="dock">
+        <ul>
+            <li class="sidebar-item" id="toggle" (click)="toggleClick()">
+                <mat-icon>menu</mat-icon>
+                <span class="e-text" [hidden]="!enableDock" title="menu">Menu</span>
+            </li>
+            <li class="sidebar-item">
+                <mat-icon>manager</mat-icon>
+                <span class="e-text" [hidden]="!enableDock" title="home" routerLink="/dashboard">Users</span>
+            </li>
+            <li class="sidebar-item">
+                <mat-icon>dashboard</mat-icon>
+                <span class="e-text" [hidden]="!enableDock" title="profile" routerLink="/dashboard">Dashboard</span>
+            </li>
+            <li class="sidebar-item">
+                <mat-icon>keyword</mat-icon>
+                <span class="e-text"  [hidden]="!enableDock" title="info">Keywords</span>
+            </li>
+            <li class="sidebar-item">
+                <mat-icon>logout</mat-icon>
+                <span class="e-text"  [hidden]="!enableDock" title="settings">Logout</span>
+            </li>
+        </ul>
+    </div>
+</ejs-sidebar>
+<div id="main-content">
+    <div class="title">Main content</div>
+    <div class="sub-title"><router-outlet></router-outlet></div>
+</div>
+<div>
+</div>

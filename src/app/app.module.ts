@@ -26,6 +26,7 @@ import { CategoryService, LegendService, TooltipService } from '@syncfusion/ej2-
 import { DataLabelService, LineSeriesService} from '@syncfusion/ej2-angular-charts';
 import { AccumulationChartModule } from '@syncfusion/ej2-angular-charts';
 import { ProgressBarModule } from '@syncfusion/ej2-angular-progressbar';
+import { SidebarModule } from '@syncfusion/ej2-angular-navigations';
 
 
 @NgModule({
@@ -61,6 +62,7 @@ import { ProgressBarModule } from '@syncfusion/ej2-angular-progressbar';
     ChartModule,
     AccumulationChartModule,
     ProgressBarModule,
+    SidebarModule
     
   ],
   providers: [CategoryService, LegendService, TooltipService, DataLabelService, LineSeriesService],
