@@ -40,11 +40,6 @@ li .e-text {
     color: #555;
 }
 
-/* Style for main content */
-#main-content {
-    padding: 50px;
-    text-align: center;
-}
 .e-sidebar.e-left.e-open {
     transition: transform 2.5s ease;
 }
