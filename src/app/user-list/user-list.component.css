@@ -16,3 +16,15 @@ h1{
     margin-bottom: 30px;
     color: aliceblue;
 }
+
+.btn-warning {
+    margin-left: 10px;
+    width: 15%;
+    margin-bottom: 25px;
+    height: 40px;
+    border-radius: 20px;
+    border: none;
+    background: #ffcc09;
+    font-size: 14px;
+    position: relative;
+  }

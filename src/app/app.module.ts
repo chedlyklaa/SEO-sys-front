@@ -10,14 +10,23 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MaterialModule} from 'src/material.module';
 import {HttpClientModule} from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
-import { UpdatepopupComponent } from './updatepopup/updatepopup.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { UpdateUserComponent } from './user-update/user-update.component';
-import { NavbarComponent } from './navbar/navbar.component';
 import { KeywordThemeComponent } from './keyword-theme/keyword-theme.component';
+import { PagesComponent } from './pages/pages.component';
+import { AddPageComponent } from './add-page/add-page.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { DashboardLayoutModule } from '@syncfusion/ej2-angular-layouts';
+import { ChartModule } from '@syncfusion/ej2-angular-charts';
+import { CategoryService, LegendService, TooltipService } from '@syncfusion/ej2-angular-charts';
+import { DataLabelService, LineSeriesService} from '@syncfusion/ej2-angular-charts';
+import { AccumulationChartModule } from '@syncfusion/ej2-angular-charts';
+import { ProgressBarModule } from '@syncfusion/ej2-angular-progressbar';
+
 
 @NgModule({
   declarations: [
@@ -25,13 +34,16 @@ import { KeywordThemeComponent } from './keyword-theme/keyword-theme.component';
     RegisterComponent,
     LoginComponent,
     HomeComponent,
-    UpdatepopupComponent,
     ForgetPasswordComponent,
     ChangePasswordComponent,
     UserListComponent,
     UpdateUserComponent,
     NavbarComponent,
-    KeywordThemeComponent
+    KeywordThemeComponent,
+    PagesComponent,
+    AddPageComponent,
+    DashboardComponent,
+  
     
   ],
   imports: [
@@ -43,9 +55,15 @@ import { KeywordThemeComponent } from './keyword-theme/keyword-theme.component';
     HttpClientModule,
     ToastrModule.forRoot(),
     MatDialogModule,
-    FormsModule
+    FormsModule,
+    BrowserModule,
+    DashboardLayoutModule,
+    ChartModule,
+    AccumulationChartModule,
+    ProgressBarModule,
+    
   ],
-  providers: [],
+  providers: [CategoryService, LegendService, TooltipService, DataLabelService, LineSeriesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

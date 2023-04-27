@@ -1,0 +1,29 @@
+.card{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 0px;
+    box-shadow: inset;
+    width: 80%;
+    text-align: center;
+}
+
+h1{
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 30px;
+    color: aliceblue;
+}
+
+.btn-warning {
+    margin-left: 10px;
+    width: 15%;
+    margin-bottom: 25px;
+    height: 40px;
+    border-radius: 20px;
+    border: none;
+    background: #ffcc09;
+    font-size: 14px;
+  }

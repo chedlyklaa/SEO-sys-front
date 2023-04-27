@@ -10,6 +10,9 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
 import { UserListComponent } from './user-list/user-list.component';
 import { ThemesService } from './service/themes.service';
 import { KeywordThemeComponent } from './keyword-theme/keyword-theme.component';
+import { PagesComponent } from './pages/pages.component';
+import { AddPageComponent } from './add-page/add-page.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
  {component:LoginComponent,path:'login'},
@@ -17,9 +20,11 @@ const routes: Routes = [
   {component:ForgetPasswordComponent,path:'forget-password'},
   {component: ChangePasswordComponent, path: 'change-password/:token'},
   {component:HomeComponent,path:''},
-  //role guard don't work should fix it 
  {component:UserListComponent,path:'users'},
  {component:KeywordThemeComponent,path:'keywords'},
+ {component:PagesComponent,path:'pages'},
+ {component:AddPageComponent,path:'add-page'},
+ {component: DashboardComponent, path:'dashboard'}
 ];
 
 @NgModule({

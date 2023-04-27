@@ -13,13 +13,14 @@ export class KeywordThemeComponent implements OnInit {
   selectedKeywordTheme: KeywordTheme | null = null;
   newKeyword: string = '';
   newTheme : string = ''
+  error : string = ''
 
   constructor(private keywordThemesService: ThemesService, private router : Router ) {}
 
   ngOnInit(): void {
     this.loadThemes()
   }
-
+  
   loadThemes(){
     this.keywordThemesService.getAll().subscribe(keywordThemes => {
       this.keywordThemes = keywordThemes
@@ -51,8 +52,18 @@ export class KeywordThemeComponent implements OnInit {
     if (!this.selectedKeywordTheme || !this.newKeyword) {
       return;
     }
-    this.keywordThemesService.addKeyword(this.selectedKeywordTheme._id, this.newKeyword).subscribe(keywordTheme => {
-      this.selectedKeywordTheme = keywordTheme;
+  
+    // Check if the keyword already exists in the theme's keyword list
+    const keywordExists = this.selectedKeywordTheme.keywords.includes(this.newKeyword);
+    if (keywordExists) {
+      this.error = "Keyword already exists in the theme"
+      console.log('Keyword already exists in the theme');
+      return;
+    }
+  
+    this.keywordThemesService.addKeyword(this.selectedKeywordTheme._id, this.newKeyword).subscribe(response => {
+      this.selectedKeywordTheme = response.theme;
+      console.log(response)
       this.newKeyword = '';
     });
   }
@@ -63,6 +74,7 @@ export class KeywordThemeComponent implements OnInit {
     }
     this.keywordThemesService.deleteKeyword(this.selectedKeywordTheme._id, keyword).subscribe(response => {
       this.selectedKeywordTheme = { ...this.selectedKeywordTheme!, keywords: this.selectedKeywordTheme!.keywords.filter(k => k !== keyword) };
+   
     });
   }
   backToThemes(){

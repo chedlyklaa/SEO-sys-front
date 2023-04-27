@@ -1,0 +1,35 @@
+<div class="container">
+    <h2>Add a New Page</h2>
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="url">URL</label>
+        <input type="text" class="form-control" id="url" [(ngModel)]="page.url" name="url" required>
+      </div>
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" class="form-control" id="title" [(ngModel)]="page.title" name="title" required>
+      </div>
+      <div class="form-group">
+        <label for="metaDescription">Meta Description</label>
+        <input type="text" class="form-control" id="metaDescription" [(ngModel)]="page.metaDescription" name="metaDescription" required>
+      </div>
+      <div class="form-group">
+        <label for="themes">Themes</label>
+        <input type="text" class="form-control" id="themes" [(ngModel)]="page.themes" name="themes" required>
+      </div>
+      <div class="form-group">
+        <label for="links">Links</label>
+        <input type="text" class="form-control" id="links" [(ngModel)]="page.links" name="links" required>
+      </div>
+      <div class="form-group">
+        <label for="ogTagKeys">OG Tag Keys</label>
+        <input type="text" class="form-control" id="ogTagKeys" [(ngModel)]="page.ogTags.ogTagKeys" name="ogTagKeys" required>
+      </div>
+      <div class="form-group">
+        <label for="ogTagValues">OG Tag Values</label>
+        <input type="text" class="form-control" id="ogTagValues" [(ngModel)]="page.ogTags.ogTagValues" name="ogTagValues" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Add Page</button>
+    </form>
+  </div>
+  

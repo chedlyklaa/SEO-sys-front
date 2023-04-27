@@ -43,12 +43,13 @@
         </tbody>
       </table>
   
-      <form (submit)="addKeyword()">
+      <form>
         <div class="newThemeForm">
           <input class="form-control" type="text" id="newKeyword" [(ngModel)]="newKeyword" name="newKeyword" placeholder="New Keywords">
-          <button class="btn btn-warning" type="submit">Add Keyword</button>
+          <button class="btn btn-warning" (click)="addKeyword()">Add Keyword</button>
         </div>
         <button class="btn btn-outline-warning mb-4" (click)="backToThemes()">Go back to themes</button>
+        <div class="error" [(ngModel)]="error">{{error}}</div>
       </form>
     </div>
   </div>

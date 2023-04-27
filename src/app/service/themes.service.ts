@@ -18,17 +18,20 @@ export class ThemesService {
   getOne(themeId: string): Observable<KeywordTheme> {
     return this.http.get<KeywordTheme>(`${this.baseUrl}/${themeId}`);
   }
+  getKeywordsForTheme(themeId : string): Observable<any>{
+    return this.http.get<any>(`${this.baseUrl}/${themeId}/keywords`)
+  }
   addTheme(newTheme : string) : Observable<any>{
     return this.http.post<any>(`${this.baseUrl}`, {theme : newTheme, keywords : []})
   }
   deleteTheme(themeId : string) : Observable<any>{
     return this.http.delete<any>(`${this.baseUrl}/${themeId}`)
   }
-  addKeyword(themeId: string, keyword: string): Observable<KeywordTheme> {
-    return this.http.post<KeywordTheme>(`${this.baseUrl}/${themeId}/keywords`, { keyword });
+  addKeyword(themeId: string, keyword: string): Observable<any> {
+    return this.http.post<any>(`${this.baseUrl}/${themeId}/keywords`, { keywordName : keyword });
   }
 
-  deleteKeyword(themeId: string, keyword: string): Observable<{ message: string }> {
-    return this.http.delete<{ message: string }>(`${this.baseUrl}/${themeId}/keywords/${keyword}`);
+  deleteKeyword(themeId: string, keyword: string): Observable<any> {
+    return this.http.delete<any>(`${this.baseUrl}/${themeId}/keyword/${keyword}`);
   }
 }

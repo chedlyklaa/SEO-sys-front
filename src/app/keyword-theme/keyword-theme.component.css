@@ -61,3 +61,10 @@ input{
   table{
     margin-bottom: 60px;
   }
+
+  
+.error {
+  color: red;
+  font-size: 0.8rem;
+  margin-bottom: 1rem;
+}
