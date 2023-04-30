@@ -1,7 +1,7 @@
-<div class="card bg-dark">
+<div class="card bg-light">
   <div class="Themes" *ngIf="!selectedKeywordTheme">
     <h2>Keyword Themes</h2> 
-    <table class="table table-dark table-striped table-hover" *ngIf="!selectedKeywordTheme">
+    <table class="table table-light table-striped table-hover" *ngIf="!selectedKeywordTheme">
       <thead>
         <tr>
           <th>Themes</th>
@@ -24,9 +24,8 @@
   </div>
     <h2 *ngIf="selectedKeywordTheme">{{selectedKeywordTheme.theme}} Keywords</h2> 
     <div *ngIf="selectedKeywordTheme">
-      <h3>{{ selectedKeywordTheme.theme }}</h3>
   
-      <table class="table table-dark table-striped">
+      <table class="table table-light table-striped">
         <thead>
           <tr>
             <th>Keyword</th>

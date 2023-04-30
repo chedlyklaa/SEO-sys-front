@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { UserService } from '../service/user.service';
 
+
 @Component({
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',
@@ -10,6 +11,10 @@ export class UserListComponent {
   users: any[] = [];
   selectedUser: any = {};
   showUpdateForm = false;
+  currentPage = 1;
+  itemsPerPage = 3;
+  maxSize = 5;
+  rotate = true;
 
   constructor(private userService: UserService) { }
 
@@ -18,6 +23,20 @@ export class UserListComponent {
       console.log(users)
       this.users = users;
     });
+  }
+
+  get totalUsers() {
+    return this.users.length;
+  }
+  pageChanged(event: any): void {
+    this.currentPage = event.page;
+    // do whatever you need to do when the page changes, such as fetching data for the new page
+  }
+
+  get pagedUsers() {
+    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+    const endIndex = startIndex + this.itemsPerPage;
+    return this.users.slice(startIndex, endIndex);
   }
 
   updateUser(user : object) {

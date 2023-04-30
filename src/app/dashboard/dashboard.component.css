@@ -1,21 +1,15 @@
 @import "../../../node_modules/@syncfusion/ej2-base/styles/material.css";
 @import "../../../node_modules/@syncfusion/ej2-angular-layouts/styles/material.css";
-  .bg{
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    z-index: -1;
-    background-color: rgb(bl237, 237, 237);
-  }
   .e-panel {
     border-radius: 25px !important;
   }
   .control-section {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    max-width: 80%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-60%, 10%);
+    width: 80%;
+    padding: 50px;
   }
   h1{
     color:white;

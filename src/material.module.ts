@@ -12,6 +12,7 @@ import {MatCheckboxModule} from "@angular/material/checkbox"
 import {MatIconModule} from "@angular/material/icon"
 
 
+
 @NgModule({
     exports: [
         MatInputModule,
@@ -23,7 +24,8 @@ import {MatIconModule} from "@angular/material/icon"
         MatDialogModule,
         MatSelectModule,
         MatCheckboxModule,
-        MatIconModule
+        MatIconModule,
+        MatPaginatorModule
     ]
 })
 export class MaterialModule { }

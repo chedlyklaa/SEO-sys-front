@@ -1,23 +1,33 @@
-<ejs-sidebar #dockBar id="dockSidebar" [enableDock]='enableDock' [width]='width' [dockSize]='dockSize'>
+<div id="container">
+<ejs-sidebar #dockBar id="dockSidebar" [enableDock]='enableDock' [width]='width' [dockSize]='dockSize' *ngIf="isLoggedIn">
     <div class="dock">
+        <ul>
+            <li class="sidebar-item" >
+                <mat-icon>account_circle</mat-icon>
+                <span class="e-text"  [hidden]="!enableDock" title="settings">{{username}}</span>
+            </li>
+        </ul>
         <ul>
             <li class="sidebar-item" id="toggle" (click)="toggleClick()">
                 <mat-icon>menu</mat-icon>
                 <span class="e-text" [hidden]="!enableDock" title="menu">Menu</span>
             </li>
-            <li class="sidebar-item">
+            <li class="sidebar-item" routerLink="/users" [class.selected]="isActive('/users')">
                 <mat-icon>manager</mat-icon>
-                <span class="e-text" [hidden]="!enableDock" title="home" routerLink="/dashboard">Users</span>
+                <span class="e-text" [hidden]="!enableDock" title="home" >Users</span>
             </li>
-            <li class="sidebar-item">
+            <li class="sidebar-item" routerLink="/dashboard" [class.selected]="isActive('/dashboard')">
                 <mat-icon>dashboard</mat-icon>
-                <span class="e-text" [hidden]="!enableDock" title="profile" routerLink="/dashboard">Dashboard</span>
+                <span class="e-text" [hidden]="!enableDock" title="profile">Dashboard</span>
             </li>
-            <li class="sidebar-item">
-                <mat-icon>keyword</mat-icon>
+            <li class="sidebar-item" routerLink="/keywords" [class.selected]="isActive('/keywords')">
+                <mat-icon >keyword</mat-icon>
                 <span class="e-text"  [hidden]="!enableDock" title="info">Keywords</span>
             </li>
-            <li class="sidebar-item">
+
+        </ul>
+        <ul>
+            <li class="sidebar-item" (click)="userLogout()">
                 <mat-icon>logout</mat-icon>
                 <span class="e-text"  [hidden]="!enableDock" title="settings">Logout</span>
             </li>
@@ -25,8 +35,17 @@
     </div>
 </ejs-sidebar>
 <div id="main-content">
-    <div class="title">Main content</div>
-    <div class="sub-title"><router-outlet></router-outlet></div>
+    <div class="control-container" *ngIf="isLoggedIn">
+        <ejs-appbar cssClass="nav" >
+          <div class="logo"><img src="../assets/logo.svg"><span>Ijeni SEO System</span></div>
+          <div class="e-appbar-spacer"></div>
+          <button class="btn btn-warning">Go To Ijeni.tn!</button>
+        </ejs-appbar>
+      </div>
+    <div class="conent">
+        <div class="sub-title"><router-outlet></router-outlet></div>
+    </div>  
 </div>
 <div>
+</div>
 </div>

@@ -6,6 +6,9 @@ import { Observable, map } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
+  getLoggedInUser() {
+    return localStorage.getItem('user')
+  }
 
   constructor(private http:HttpClient) { 
 
@@ -24,8 +27,13 @@ export class AuthService {
   }
 
 
+  isLoggedIn() : boolean{
+    return localStorage.getItem("user") ? true : false;
+  }
 
-
+  logout(){
+     localStorage.removeItem("user") 
+  }
   // User management ==> new service called userSevice not here!!!
   RegisterUser(inputdata:any){
     return this.http.post(this.apiUrl,inputdata)

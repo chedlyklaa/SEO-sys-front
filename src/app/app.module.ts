@@ -27,6 +27,8 @@ import { DataLabelService, LineSeriesService} from '@syncfusion/ej2-angular-char
 import { AccumulationChartModule } from '@syncfusion/ej2-angular-charts';
 import { ProgressBarModule } from '@syncfusion/ej2-angular-progressbar';
 import { SidebarModule } from '@syncfusion/ej2-angular-navigations';
+import { AppBarModule } from "@syncfusion/ej2-angular-navigations";
+import { PaginationModule } from 'ngx-bootstrap/pagination';
 
 
 @NgModule({
@@ -62,7 +64,9 @@ import { SidebarModule } from '@syncfusion/ej2-angular-navigations';
     ChartModule,
     AccumulationChartModule,
     ProgressBarModule,
-    SidebarModule
+    SidebarModule,
+    AppBarModule,
+    PaginationModule.forRoot()
     
   ],
   providers: [CategoryService, LegendService, TooltipService, DataLabelService, LineSeriesService],

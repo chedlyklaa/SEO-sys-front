@@ -1,8 +1,14 @@
 /* Style for sidebar */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
 .e-dock .dock {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     padding: 10px;
     box-sizing: border-box;
-    height: calc(100% - 110px);
+    height: 100%;
 }
 
 /* Style for sidebar items */
@@ -14,7 +20,6 @@ ul {
 
 li {
     display: flex;
-    align-items: center;
     margin-bottom: 15px;
     padding: 10px;
     border-radius: 10px;
@@ -48,9 +53,44 @@ li .e-text {
     font-weight: 600;
     margin-bottom: 30px;
 }
-
 .sub-title {
     font-size: 20px;
     font-weight: 500;
     color: #555;
+    
 }
+.nav{
+    padding: 12px;
+    height: 70px;
+    width:100%;
+    box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1);
+}
+
+.logo{
+    max-width: 200px;
+    max-height: 30px;
+    display: flex;
+    justify-content: space-around;
+}
+.logo img{
+    height: 100%;
+}
+.logo span{
+    font-family:'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: larger;
+}
+.btn-warning{
+    width: 10%;
+    border-radius: 20px;
+    border: none;
+    background: #ff8400;
+    font-size: 14px;
+    position: relative;
+    color: white;
+}
+
+.sidebar-item.selected {
+    background-color: #f0f0f0;
+    color: #333;
+  }
