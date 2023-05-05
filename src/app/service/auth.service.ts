@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, map } from 'rxjs';
+import { Observable, map, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -27,8 +27,9 @@ export class AuthService {
   }
 
 
-  isLoggedIn() : boolean{
-    return localStorage.getItem("user") ? true : false;
+  isLoggedIn(): Observable<boolean> {
+    const user = localStorage.getItem('user');
+    return of(user !== null);
   }
 
   logout(){

@@ -12,6 +12,9 @@ export class PageService {
   getAllPages() : Observable<any> {
     return this.http.get<any>(`${this.baseUrl}`)
   }
+  updatePageById(pageId : string, page : object) : Observable<any>{
+    return this.http.put<any>(`${this.baseUrl}/${pageId}`, { page })
+  }
   addPage(page : object) : Observable<any> {
     return this.http.post<any>(`${this.baseUrl}`, {page})
   }

@@ -21,7 +21,7 @@ export class LoginComponent {
           // login successful, user object in response
           console.log(response);
           localStorage.setItem('user', JSON.stringify(response.user))
-          this.router.navigate(['/'])
+          location.href = '/';
         } else {
           // login failed, error object in response
           console.log(response.error);

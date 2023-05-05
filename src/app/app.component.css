@@ -64,6 +64,9 @@ li .e-text {
     height: 70px;
     width:100%;
     box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1);
+    position: fixed !important; /* Set the navbar to fixed position */
+    top: 0 !important; /* Position the navbar at the top of the page */
+
 }
 
 .logo{
@@ -94,3 +97,4 @@ li .e-text {
     background-color: #f0f0f0;
     color: #333;
   }
+

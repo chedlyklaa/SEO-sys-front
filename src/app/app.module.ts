@@ -29,6 +29,8 @@ import { ProgressBarModule } from '@syncfusion/ej2-angular-progressbar';
 import { SidebarModule } from '@syncfusion/ej2-angular-navigations';
 import { AppBarModule } from "@syncfusion/ej2-angular-navigations";
 import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { PageUpdateComponent } from './page-update/page-update.component';
+import { AuthGuard } from './guard/auth.guard';
 
 
 @NgModule({
@@ -46,6 +48,7 @@ import { PaginationModule } from 'ngx-bootstrap/pagination';
     PagesComponent,
     AddPageComponent,
     DashboardComponent,
+    PageUpdateComponent,
   
     
   ],
@@ -69,7 +72,7 @@ import { PaginationModule } from 'ngx-bootstrap/pagination';
     PaginationModule.forRoot()
     
   ],
-  providers: [CategoryService, LegendService, TooltipService, DataLabelService, LineSeriesService],
+  providers: [CategoryService, LegendService, TooltipService, DataLabelService, LineSeriesService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

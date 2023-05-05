@@ -22,16 +22,21 @@ export class AppComponent  {
   }
   constructor(private route:Router, private authService : AuthService){}
   ngOnInit(){
-    setInterval(()=> {this.isLoggedIn = this.authService.isLoggedIn()}, 1000)
-    this.username = JSON.parse(localStorage.getItem('user')!).username
-    
+    this.authService.isLoggedIn().subscribe((loggedIn) => {
+      this.isLoggedIn = loggedIn;
+      this.username = JSON.parse(localStorage.getItem('user')!).username;
+    });
   }
   isActive(route: string): boolean {
     return this.route.isActive(route, false);
   }
   userLogout(){
     this.authService.logout()
-    this.route.navigate(['/login'])
+    this.isLoggedIn = false
+    setTimeout(()=>{
+      this.route.navigate(['/login'])
+
+    }, 1000)
   }
   ngAfterViewInit() {
     //createSpinner() method is used to create spinner

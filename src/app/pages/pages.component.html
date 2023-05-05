@@ -1,4 +1,4 @@
-<div class="card bg-light">
+<div class="card bg-light" *ngIf="!showUpdateForm">
   <div class="container-fluid">
     <h1 class="text-center my-4">Pages List</h1>
     <div class="row">
@@ -19,7 +19,7 @@
               <td>{{ page.url }}</td>
               <td>{{ page.metaDescription }}</td>
               <td>
-                <button class="btn btn-primary" >Edit</button>
+                <button class="btn btn-primary"  (click)="showUpdatePageForm(page)">Edit</button>
               </td>
               <td>
                 <button class="btn btn-danger" (click)="deletePage(page._id)" >Delete</button>
@@ -31,4 +31,7 @@
       </div>
     </div>
   </div>
+</div>
+<div *ngIf="showUpdateForm">
+  <app-page-update [page]="selectedPage" (updated)="onUpdateComplete()" (backToList)="onBackToList()"></app-page-update>
 </div>

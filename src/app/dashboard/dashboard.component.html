@@ -1,9 +1,11 @@
+
 <div class="control-section">
     <ejs-dashboardlayout [columns]="4" #editLayout [cellSpacing]='cellSpacing' [allowResizing] = "true">
+
         <e-panels>
             <e-panel [sizeX]="3" [sizeY]="1" [row]="1" [col]="0">
                 <ng-template #header >
-                    <div>Product usage ratio</div>
+                    <div><h3>Product usage ratio</h3></div>
                 </ng-template> 
                 <ng-template #content>
                     <div id="column">
@@ -76,4 +78,5 @@
             </e-panel>
         </e-panels>
     </ejs-dashboardlayout>
+
 </div>

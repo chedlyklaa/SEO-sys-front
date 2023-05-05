@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { PageService } from '../service/page.service';
 import { Page } from '../Page';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pages',
@@ -8,8 +9,10 @@ import { Page } from '../Page';
   styleUrls: ['./pages.component.css']
 })
 export class PagesComponent {
+  showUpdateForm : boolean = false
+  selectedPage : Page;
   pages : Page[] = []
-  constructor(private pageService : PageService){}
+  constructor(private pageService : PageService, private router : Router){}
   ngOnInit(){
     this.loadPages();
   }
@@ -24,5 +27,20 @@ export class PagesComponent {
       }
       )
     this.loadPages();
+  }
+  showUpdatePageForm(page : Page){
+    this.selectedPage = page
+    this.showUpdateForm = true
+  }
+  toggleUpdateForm() {
+    this.showUpdateForm = !this.showUpdateForm;
+  }
+
+  onUpdateComplete() {
+    this.toggleUpdateForm();
+  }
+
+  onBackToList() {
+    this.router.navigate(['/pages'])
   }
 }

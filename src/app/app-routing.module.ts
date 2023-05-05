@@ -15,16 +15,18 @@ import { AddPageComponent } from './add-page/add-page.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
- {component:LoginComponent,path:'login'},
- {component:RegisterComponent,path:'register'},
-  {component:ForgetPasswordComponent,path:'forget-password'},
+  // without authGuard:
+  {component:LoginComponent, path:'login'},
+  {component:ForgetPasswordComponent, path:'forget-password'},
   {component: ChangePasswordComponent, path: 'change-password/:token'},
-  {component:HomeComponent,path:''},
- {component:UserListComponent,path:'users'},
- {component:KeywordThemeComponent,path:'keywords'},
- {component:PagesComponent,path:'pages'},
- {component:AddPageComponent,path:'add-page'},
- {component: DashboardComponent, path:'dashboard'}
+  //with authGuard:
+  {component:RegisterComponent, path:'register',  canActivate: [AuthGuard] },
+  {component:HomeComponent, path:'', canActivate: [AuthGuard]},
+  {component:UserListComponent, path:'users', canActivate: [AuthGuard]},
+  {component:KeywordThemeComponent, path:'keywords', canActivate: [AuthGuard]},
+  {component:PagesComponent, path:'pages', canActivate: [AuthGuard]},
+  {component:AddPageComponent, path:'add-page', canActivate: [AuthGuard]},
+  {component: DashboardComponent, path:'dashboard', canActivate: [AuthGuard]}
 ];
 
 @NgModule({

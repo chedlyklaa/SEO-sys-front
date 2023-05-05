@@ -3,8 +3,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Ubuntu", sans-serif;
   text-decoration: none;
+  font-weight: bold;
 
 }
 .container {
@@ -49,8 +49,8 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: rgb(22, 22, 22);
-  color: white;
+  background-color: rgb(255, 255, 255);
+  color: black;
 }
 
 .form__image {
@@ -96,7 +96,7 @@ input {
   height: 35px;
   border-radius: 20px;
   border: none;
-  background: #ffffff;
+  background: #eaeaff;
   padding: 10px;
   font-size: 14px;
   position: relative;
