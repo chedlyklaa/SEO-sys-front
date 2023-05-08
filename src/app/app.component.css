@@ -1,0 +1,100 @@
+/* Style for sidebar */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+.e-dock .dock {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+    box-sizing: border-box;
+    height: 100%;
+}
+
+/* Style for sidebar items */
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+li {
+    display: flex;
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+li:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Style for sidebar item icons */
+li mat-icon {
+    margin-right: 10px;
+    font-size: 24px;
+    color: #555;
+}
+
+/* Style for sidebar item text */
+li .e-text {
+    font-size: 16px;
+    font-weight: 500;
+    color: #555;
+}
+
+.e-sidebar.e-left.e-open {
+    transition: transform 2.5s ease;
+}
+.title {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+.sub-title {
+    font-size: 20px;
+    font-weight: 500;
+    color: #555;
+    
+}
+.nav{
+    padding: 12px;
+    height: 70px;
+    width:100%;
+    box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1);
+    position: fixed !important; /* Set the navbar to fixed position */
+    top: 0 !important; /* Position the navbar at the top of the page */
+
+}
+
+.logo{
+    max-width: 200px;
+    max-height: 30px;
+    display: flex;
+    justify-content: space-around;
+}
+.logo img{
+    height: 100%;
+}
+.logo span{
+    font-family:'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: larger;
+}
+.btn-warning{
+    width: 10%;
+    border-radius: 20px;
+    border: none;
+    background: #ff8400;
+    font-size: 14px;
+    position: relative;
+    color: white;
+}
+
+.sidebar-item.selected {
+    background-color: #f0f0f0;
+    color: #333;
+  }
+

@@ -1,0 +1,91 @@
+.container{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, 20%);
+  color: black;
+}
+.card{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.popover-header{
+  display: flex;
+  justify-content: space-between;
+}
+input {
+    display: block;
+    width: 100%;
+    margin-bottom: 25px;
+    height: 35px;
+    border-radius: 20px;
+    border: none;
+    background: #f2f2f2;
+    padding: 10px;
+    font-size: 14px;
+    position: relative;
+  }
+  button {
+    color: black;
+    width:20%;
+    margin-bottom: 25px;
+    height: 40px;
+    border-radius: 20px;
+    border: none;
+    background: #ffcc09;
+    font-size: 14px;
+  }
+  button:hover{
+    background-color: #ff4400;
+  }
+  /* CSS styles for the post content */
+.preview {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 20px;
+}
+
+.image {
+  margin-right: 20px;
+}
+
+.image img {
+  width: 200px;
+  height: 200px;
+}
+
+.details {
+  flex: 1;
+}
+
+.title {
+  font-size: 24px;
+  margin: 0;
+}
+
+.description {
+  font-size: 16px;
+}
+
+.button {
+  display: inline-block;
+  background-color: #3B5998;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 5px;
+  padding: 10px 20px;
+  text-decoration: none;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.button:hover {
+  background-color: #2d4373;
+}
+.popover-title{
+  margin-top: 30px;
+}

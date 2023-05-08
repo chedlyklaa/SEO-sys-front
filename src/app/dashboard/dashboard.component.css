@@ -1,0 +1,20 @@
+@import "../../../node_modules/@syncfusion/ej2-base/styles/material.css";
+@import "../../../node_modules/@syncfusion/ej2-angular-layouts/styles/material.css";
+  .e-panel {
+    border-radius: 25px !important;
+  }
+  .control-section {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-60%, 10%);
+    width: 80%;
+    padding: 50px;
+  }
+  .e-dashboardlayout.e-control .e-panel .e-panel-container .e-panel-header {
+    color: black;
+    text-align: center;
+}
+  .e-dashboardlayout.e-control .e-panel .e-panel-container .e-panel-content {
+    padding: 50px;
+}

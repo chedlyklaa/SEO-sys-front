@@ -1,11 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, map } from 'rxjs';
+import { Observable, map, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+  getLoggedInUser() {
+    return localStorage.getItem('user')
+  }
 
   constructor(private http:HttpClient) { 
 
@@ -19,11 +22,19 @@ export class AuthService {
     return this.http.post<any>(`${this.apiUrl}/reset-password`, { email: email})
   }
 
-  
+  changePassword(resetToken : string, newPassword : string) : Observable<any>{
+    return this.http.put<any>(`${this.apiUrl}/reset-password/${resetToken}`, {newPassword})
+  }
 
 
+  isLoggedIn(): Observable<boolean> {
+    const user = localStorage.getItem('user');
+    return of(user !== null);
+  }
 
-
+  logout(){
+     localStorage.removeItem("user") 
+  }
   // User management ==> new service called userSevice not here!!!
   RegisterUser(inputdata:any){
     return this.http.post(this.apiUrl,inputdata)

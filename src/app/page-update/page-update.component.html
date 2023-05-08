@@ -1,0 +1,31 @@
+<div class="container-fluid">
+    <h1 class="text-center my-4">Update Page</h1>
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="url">URL</label>
+        <input type="text" class="form-control" id="url" [(ngModel)]="page.url" name="url" required>
+      </div>
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" class="form-control" id="title" [(ngModel)]="page.title" name="title" required>
+      </div>
+      <div class="form-group">
+        <label for="metaDescription">Meta Description</label>
+        <input type="text" class="form-control" id="metaDescription" [(ngModel)]="page.metaDescription" name="metaDescription" required>
+      </div>
+      <div class="form-group">
+        <label for="ogTagKeys">Social Media Image</label>
+        <input type="text" class="form-control" id="ogImage" [(ngModel)]="page.ogTags['ogImage']" name="ogImage" required>
+      </div>
+      <div class="form-group">
+        <label for="ogTagValues">Social Media Title</label>
+        <input type="text" class="form-control" id="ogTitle" [(ngModel)]="page.ogTags['ogTitle']" name="ogTitle" required>
+      </div>
+      <div class="form-group">
+        <label for="ogTagValues">Social Media Description</label>
+        <input type="text" class="form-control" id="ogDescription" [(ngModel)]="page.ogTags['ogDescription']" name="ogDescription" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Update Page</button>
+      <button type="button" class="btn btn-secondary ml-2" (click)="goBack()">Cancel</button>
+    </form>
+  </div>
