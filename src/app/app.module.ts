@@ -31,7 +31,7 @@ import { AppBarModule } from "@syncfusion/ej2-angular-navigations";
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { PageUpdateComponent } from './page-update/page-update.component';
 import { AuthGuard } from './guard/auth.guard';
-
+import { ListBoxModule } from '@syncfusion/ej2-angular-dropdowns';
 
 @NgModule({
   declarations: [
@@ -69,7 +69,8 @@ import { AuthGuard } from './guard/auth.guard';
     ProgressBarModule,
     SidebarModule,
     AppBarModule,
-    PaginationModule.forRoot()
+    PaginationModule.forRoot(),
+    ListBoxModule
     
   ],
   providers: [CategoryService, LegendService, TooltipService, DataLabelService, LineSeriesService, AuthGuard],

@@ -54,6 +54,7 @@ li .e-text {
     margin-bottom: 30px;
 }
 .sub-title {
+    background-color: rgb(238, 238, 238);
     font-size: 20px;
     font-weight: 500;
     color: #555;
@@ -64,9 +65,6 @@ li .e-text {
     height: 70px;
     width:100%;
     box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1);
-    position: fixed !important; /* Set the navbar to fixed position */
-    top: 0 !important; /* Position the navbar at the top of the page */
-
 }
 
 .logo{

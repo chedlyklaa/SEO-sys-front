@@ -1,7 +1,9 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, ViewEncapsulation, Inject, ViewChild } from '@angular/core';
+import { Component, ViewEncapsulation, Inject, ViewChild, ElementRef } from '@angular/core';
 import { DashboardLayoutComponent, PanelModel } from '@syncfusion/ej2-angular-layouts';
 import { FontModel,AnimationModel, ITextRenderEventArgs } from '@syncfusion/ej2-progressbar';
+import { DashboardService } from '../service/dashboard.service';
+import Chart from 'chart.js/auto';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -9,19 +11,37 @@ import { FontModel,AnimationModel, ITextRenderEventArgs } from '@syncfusion/ej2-
   encapsulation: ViewEncapsulation.None
 })
 export class DashboardComponent {
+  @ViewChild('chart', { static: true }) chartRef!: ElementRef;
   @ViewChild('default_dashboard')
     public dashboard: DashboardLayoutComponent;
-    constructor(private http : HttpClient) {
+    constructor(private http : HttpClient, private dashboardService : DashboardService) {
         
     }
+    topQueries : []
+    topQueriesCtr : []
+    topQueriesClicks : []
+    topQueriesImpressions : []
+    topPages : []
     ngOnInit(){
-      this.trackThickness = 20;
-      this.progressThickness = 25;
-      this.value = 50;
+      this.dashboardService.getData().subscribe(response => {
+        this.topQueries = response["top-queries"]
+        this.topQueriesCtr = response["ctrs"]
+        this.topQueriesClicks = response["clicks"]
+        this.topQueriesImpressions = response["impressions"]
+        this.topPages = response["top-pages"]
+        console.log(response)
+        
+      })
+      this.trackThickness = 5;
+      this.progressThickness = 15;
+      this.value = 91;
       this.animation = { enable: true, duration: 2000, delay: 0 };
-      this.labelStyle = { color: '#000', fontWeight: 'bold'};
+      this.labelStyle = { color: 'green', fontWeight: 'bold'};
       this.showProgressValue = true;
-    }
+      
+  }
+
+  
     public animation: AnimationModel;
     public value: number;
     public trackThickness: number;
@@ -29,7 +49,7 @@ export class DashboardComponent {
     public labelStyle: FontModel;
     public showProgressValue: boolean;
     public textRender2(args: ITextRenderEventArgs): void {
-        args.text = '50';
+        args.text = this.value.toString() + '%';
      }
 
     
@@ -62,20 +82,5 @@ export class DashboardComponent {
      public legendSettings: Object = {
         visible: false
     };
-addPanel(): void {
-    let panel: PanelModel[] = [{
-        'id': this.count.toString(), 'sizeX': 1, 'sizeY': 1, 'row': 0, 'col': 0,
-        content: '<span id="close" class="e-template-icon e-close-icon"></span><div class="text-align">' + this.count.toString() + '</div>'
-    }];
-    this.dashboard.addPanel(panel[0]);
-    let closeIcon: any = document.getElementById(this.count.toString())?.querySelector('.e-close-icon');
-    closeIcon.addEventListener('click', this.onCloseIconHandler.bind(this));
-    this.count = this.count + 1;
-}
-onCloseIconHandler(event: any): void {
-    if ((<HTMLElement>event.target).offsetParent) {
-        this.dashboard.removePanel((<HTMLElement>event.target).offsetParent!.id);
-    }
-}
-   
+
 }

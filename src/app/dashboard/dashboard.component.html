@@ -1,82 +1,67 @@
+<div class="container">
+    <div class="control-section">
+        <h1>Dashboard</h1>
+        <ejs-dashboardlayout [columns]="3" #editLayout [cellSpacing]='cellSpacing' [allowResizing] = "true" [allowDragging]="true">
 
-<div class="control-section">
-    <ejs-dashboardlayout [columns]="4" #editLayout [cellSpacing]='cellSpacing' [allowResizing] = "true">
+            <e-panels>
+                <e-panel [sizeX]="2" [sizeY]="1" [row]="1" [col]="0">
+                    <ng-template #header >
+                        <div>Product usage ratio</div>
+                    </ng-template> 
+                    <ng-template #content>
+                        <div id="column">
+                            <ejs-chart id="columnChart" height="162px" [primaryXAxis]='primaryXAxis'>
+                                <e-series-collection>
+                                    <e-series [dataSource]="chartData" type='Column' xName='month' yName='sales'>
+                                    </e-series>
+                                </e-series-collection>
+                            </ejs-chart>
 
-        <e-panels>
-            <e-panel [sizeX]="3" [sizeY]="1" [row]="1" [col]="0">
-                <ng-template #header >
-                    <div><h3>Product usage ratio</h3></div>
-                </ng-template> 
-                <ng-template #content>
-                    <div id="column">
-                        <ejs-chart id="columnChart" height="162px" [primaryXAxis]='primaryXAxis'>
-                            <e-series-collection>
-                                <e-series [dataSource]="chartData" type='Column' xName='month' yName='sales'>
-                                </e-series>
-                            </e-series-collection>
-                        </ejs-chart>
+                        </div>
+                    </ng-template>
+                </e-panel>
+                <e-panel [sizeX]="1" [sizeY]="1" [row]="0" [col]="1">
+                    <ng-template #content>
+                    <div class="seoScore">
+                        <ejs-progressbar  id='determinate' type='Circular' innerRadius='90%' height='250' [value]="value"  [animation]='animation'   [trackThickness]='trackThickness' [progressThickness]='progressThickness' progressColor='lightgreen' [labelStyle]='labelStyle'  (textRender)='textRender2($event)'   [showProgressValue]='showProgressValue'>
+                        </ejs-progressbar>
+                        <h3>SEO Score</h3>
+                    </div>
+                    </ng-template>
+                </e-panel>
+                <e-panel [sizeX]="1" [sizeY]="1" [row]="0" [col]="0">
+                    <ng-template #header>
+                        <div>Top visited pages</div>
+                    </ng-template>
+                    <ng-template #content>
+                        <div style="max-height: 80%; width: 100%; overflow-y: auto; overflow-x: hidden; position:absolute; bottom:0px;">
+                        <ul *ngFor="let page of topPages" id="demo">
+                            <li style="margin-bottom: 6px;"><mat-icon>link</mat-icon>{{page}}</li>
+                        </ul>
+                    </div>
+                    </ng-template>
+                </e-panel>
 
-                    </div>
-                </ng-template>
-            </e-panel>
-            <e-panel [sizeX]="1" [sizeY]="1" [row]="0" [col]="1">
-                <ng-template #header>
-                    <div>Last year Sales Comparison</div>
-                </ng-template>
-                <ng-template #content>
-                    <div id="line">
-                        <ejs-chart id="lineChart" height="162px" [primaryXAxis]='primaryXAxis'>
-                            <e-series-collection>
-                                <e-series [dataSource]="lineData" xName='x' yName='y' type="Line">
-                                </e-series>
-                            </e-series-collection>
-                        </ejs-chart>
-                    </div>
-                </ng-template>
-            </e-panel>
-            <e-panel [sizeX]="1" [sizeY]="1" [row]="0" [col]="0">
-                <ng-template #header>
-                    <div>Sales increase percentage 1</div>
-                </ng-template>
-                <ng-template #content>
-                    <div id="pie">
-                        <ejs-accumulationchart id="pieChart" height="162px" [legendSettings]="legendSettings">
-                            <e-accumulation-series-collection>
-                                <e-accumulation-series [dataSource]="piechart" xName="x" yName="y" innerRadius="20%"
-                                    name="Browser" >
-                                </e-accumulation-series>
-                            </e-accumulation-series-collection>
-                        </ejs-accumulationchart>
-                    </div>
-                </ng-template>
-            </e-panel>
-            <e-panel [sizeX]="1" [sizeY]="1" [row]="0" [col]="3">
-                <ng-template #header>
-                    <div>Sales increase percentage 2</div>
-                </ng-template>
-                <ng-template #content>
-                    <ejs-progressbar  id='determinate' type='Circular' height='250' [value]="value"  [animation]='animation'  [trackThickness]='trackThickness' [progressThickness]='progressThickness' [labelStyle]='labelStyle'  (textRender)='textRender2($event)'   [showProgressValue]='showProgressValue'>
-                    </ejs-progressbar>
-                </ng-template>
-            </e-panel>
-            <e-panel [sizeX]="1" [sizeY]="2" [row]="0" [col]="4">
-                <ng-template #header>
-                    <div>Sales increase percentage 2</div>
-                </ng-template>
-                <ng-template #content>
-                    <div id="pie1">
-                        <ejs-accumulationchart id="pieChart1" [enableAnimation]="false" height="162px"
-                             [legendSettings]='legendSettings'>
-                            <e-accumulation-series-collection>
-                                <e-accumulation-series [dataSource]="piechart1" xName="x" yName="y" radius="70%"
-                                    name="Browser" >
-                                </e-accumulation-series>
-                            </e-accumulation-series-collection>
-                        </ejs-accumulationchart>
-                    </div>
-                </ng-template>
-            </e-panel>
-        </e-panels>
-    </ejs-dashboardlayout>
+                <e-panel [sizeX]="1" [sizeY]="2" [row]="0" [col]="2">
+                    <ng-template #header>
+                        <div>Top queries</div>
+                    </ng-template>
+                    <ng-template #content>
+                        <div style="max-height: 80%; width: 100%; overflow-y: auto; overflow-x: hidden; position:absolute; bottom:0px;">
+                            <ul *ngFor="let query of topQueries ; let i = index" id="demo">
+                                <li><mat-icon>key</mat-icon> - {{query}}</li>
 
+                                <li>
+                                Impression:  {{topQueriesImpressions[i]}} <br>
+                                CTR:  {{topQueriesCtr[i] | percent}} <br>
+                                Clicks:  {{topQueriesClicks[i]}}
+                                </li>
+                            </ul>
+                    </div>
+                    </ng-template>
+                </e-panel>
+            </e-panels>
+        </ejs-dashboardlayout>
+
+    </div>
 </div>
