@@ -6,17 +6,24 @@
             <e-panels>
                 <e-panel [sizeX]="2" [sizeY]="1" [row]="1" [col]="0">
                     <ng-template #header >
-                        <div>Product usage ratio</div>
+                        <div>SEO system internal DATA</div>
                     </ng-template> 
                     <ng-template #content>
-                        <div id="column">
-                            <ejs-chart id="columnChart" height="162px" [primaryXAxis]='primaryXAxis'>
-                                <e-series-collection>
-                                    <e-series [dataSource]="chartData" type='Column' xName='month' yName='sales'>
-                                    </e-series>
-                                </e-series-collection>
-                            </ejs-chart>
-
+                        <div class="list">
+                            <div class="list-item">
+                                <mat-icon>managers</mat-icon>
+                                <p><b>3</b> Users</p>
+                            </div>
+                            <div class="separator"> </div>
+                            <div class="list-item">
+                                <mat-icon>key</mat-icon>
+                                <p><b>3</b> Keyword Themes</p>
+                            </div>
+                            <div class="separator"> </div>
+                            <div class="list-item">
+                                <mat-icon>link</mat-icon>
+                                <p><b>3</b> Pages</p>
+                            </div>
                         </div>
                     </ng-template>
                 </e-panel>

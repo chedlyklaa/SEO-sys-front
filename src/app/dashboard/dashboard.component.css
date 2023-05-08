@@ -93,3 +93,22 @@ canvas {
   justify-content: center;
   text-align: center;
 }
+
+.list{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 24px;
+}
+.list-item{
+  text-align: center;
+}
+.list-item > mat-icon{
+  transform: scale(4);
+  margin: 50px;
+}
+.separator{
+  height:80px;
+  width: 3px;
+  background-color: rgb(173, 173, 173);
+}
