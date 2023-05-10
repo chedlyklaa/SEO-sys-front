@@ -56,36 +56,6 @@ input {
   width: 200px;
   height: 200px;
 }
-
-.details {
-  flex: 1;
-}
-
-.title {
-  font-size: 24px;
-  margin: 0;
-}
-
-.description {
-  font-size: 16px;
-}
-
-.button {
-  display: inline-block;
-  background-color: #3B5998;
-  color: white;
-  font-size: 16px;
-  font-weight: bold;
-  text-align: center;
-  border-radius: 5px;
-  padding: 10px 20px;
-  text-decoration: none;
-  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-}
-
-.button:hover {
-  background-color: #2d4373;
-}
 .popover-title{
   margin-top: 30px;
 }

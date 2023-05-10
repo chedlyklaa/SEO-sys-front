@@ -54,10 +54,11 @@ li .e-text {
     margin-bottom: 30px;
 }
 .sub-title {
-    background-color: rgb(238, 238, 238);
+    background-color: rgb(246, 250, 255);
     font-size: 20px;
     font-weight: 500;
-    color: #555;
+    color: #555555;
+    width: 100%;
     
 }
 .nav{
@@ -94,5 +95,8 @@ li .e-text {
 .sidebar-item.selected {
     background-color: #f0f0f0;
     color: #333;
-  }
 
+  }
+  .sidebar-item.selected > span {
+    font-weight: bold;
+  }

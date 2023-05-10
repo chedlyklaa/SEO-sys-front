@@ -3,7 +3,11 @@ import { Component, ViewEncapsulation, Inject, ViewChild, ElementRef } from '@an
 import { DashboardLayoutComponent, PanelModel } from '@syncfusion/ej2-angular-layouts';
 import { FontModel,AnimationModel, ITextRenderEventArgs } from '@syncfusion/ej2-progressbar';
 import { DashboardService } from '../service/dashboard.service';
-import Chart from 'chart.js/auto';
+import Highcharts from "highcharts/highmaps";
+import worldMap from "@highcharts/map-collection/custom/world.geo.json";
+import { UserService } from '../service/user.service';
+import { ThemesService } from '../service/themes.service';
+import { PageService } from '../service/page.service';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -13,8 +17,12 @@ import Chart from 'chart.js/auto';
 export class DashboardComponent {
   @ViewChild('chart', { static: true }) chartRef!: ElementRef;
   @ViewChild('default_dashboard')
+  Highcharts: typeof Highcharts = Highcharts;
+  chartConstructor = "mapChart";
+ 
+
     public dashboard: DashboardLayoutComponent;
-    constructor(private http : HttpClient, private dashboardService : DashboardService) {
+    constructor(private http : HttpClient, private dashboardService : DashboardService, private userService : UserService, private themesService : ThemesService, private pagesService : PageService) {
         
     }
     topQueries : []
@@ -22,6 +30,18 @@ export class DashboardComponent {
     topQueriesClicks : []
     topQueriesImpressions : []
     topPages : []
+    usersNumber : number
+    pagesNumber : number
+    themesNumber : number
+    ClicksData : Object[] = []
+    CtrData : Object[] = []
+    topCountries : string[]= []
+    clickXAxis: Object;
+    clickYAxis: Object;
+    ctrYAxis: Object;
+    ctrXAxis : Object
+    palette : string[] = []
+
     ngOnInit(){
       this.dashboardService.getData().subscribe(response => {
         this.topQueries = response["top-queries"]
@@ -29,9 +49,44 @@ export class DashboardComponent {
         this.topQueriesClicks = response["clicks"]
         this.topQueriesImpressions = response["impressions"]
         this.topPages = response["top-pages"]
-        console.log(response)
-        
+        response["click-per-date"].forEach((clickPerDate : Object) => {
+          this.ClicksData.push(clickPerDate)
+        });
+        response["ctrPerDate"].forEach((ctrPerDate : Object) => {
+          this.CtrData.push(ctrPerDate)
+        })
+        this.topCountries = response['topCountries']
+        console.log(this.topCountries)
       })
+      console.log(this.ClicksData)
+      console.log(this.CtrData)
+      this.clickXAxis = {
+        valueType: 'Category',
+        title: 'Date'
+    };
+      this.clickYAxis = {
+        minimum: 0, maximum: 20,
+        interval: 5, title: 'Clicks'
+    };
+    this.ctrXAxis = {
+      valueType: 'Category',
+      title: 'Date'
+  };
+    this.ctrYAxis = {
+      minimum: 0, maximum: 20,
+      interval: 5, title: 'Ctr'
+  };
+      this.userService.getAllUsers().subscribe(response => {
+        this.usersNumber = response.length
+      })
+      
+      this.themesService.getAll().subscribe(response => {
+        this.themesNumber = response.length
+      })
+      this.pagesService.getAllPages().subscribe(response => {
+        this.pagesNumber = response.length
+      })
+      this.palette = ["#E94649", "#F6B53F", "#6FAAB0", "#C4C24A"];
       this.trackThickness = 5;
       this.progressThickness = 15;
       this.value = 91;
@@ -53,34 +108,57 @@ export class DashboardComponent {
      }
 
     
-    public count: number = 8;
+    
     public cellSpacing: number[] = [10, 10];
-    public chartData: Object[] = [
-      { month: 'Jan', sales: 35 }, { month: 'Feb', sales: 28 },
-      { month: 'Mar', sales: 34 }, { month: 'Apr', sales: 32 },
-      { month: 'May', sales: 40 }, { month: 'Jun', sales: 32 },
-      { month: 'Jul', sales: 35 }, { month: 'Aug', sales: 55 },
-      { month: 'Sep', sales: 38 }, { month: 'Oct', sales: 30 },
-      { month: 'Nov', sales: 25 }, { month: 'Dec', sales: 32 }
-    ];
-    public primaryXAxis: Object = {
-        valueType: 'Category'
-    }
-    public lineData: any[] = [
-     { x: 2013, y: 28 }, { x: 2014, y: 25 },{ x: 2015, y: 26 }, { x: 2016, y: 27 },
-    { x: 2017, y: 32 }, { x: 2018, y: 35 }
-    ];
-    public piechart: any[] = [{ x: 'TypeScript', y: 13, text: 'TS 13%' }, { x: 'React', y: 12.5, text: 'Reat 12.5%' },{ x: 'MVC', y: 12, text: 'MVC 12%' },{ x: 'Core', y: 12.5, text: 'Core 12.5%' },{ x: 'Vue', y: 10, text: 'Vue 10%' },{ x: 'Angular', y: 40, text: 'Angular 40%' }];
-    public piechart1: any[] = [
-     { 'x': 'Chrome', y: 37, text: '37%' },
-     { 'x': 'UC Browser', y: 17, text: '17%' },
-     { 'x': 'iPhone', y: 19, text: '19%' },
-     { 'x': 'Others', y: 4, text: '4%' },
-     { 'x': 'Opera', y: 11, text: '11%' },
-     { 'x': 'Android', y: 12, text: '12%' }
-     ];
-     public legendSettings: Object = {
-        visible: false
+    showMap : boolean = false
+    bubbleData = [{ code3: "TUN", z: 105 }, { code3: "TUN", z: 1000}];
+    chartOptions: Highcharts.Options = {
+      chart: {
+        borderWidth: 1,
+        map: worldMap
+      },
+  
+      title: {
+        text: "Ijeni Usage Word Map"
+      },
+  
+      subtitle: {
+        text: "Representative map chart of ijeni users around the world"
+      },
+  
+      legend: {
+        enabled: false
+      },
+  
+      mapNavigation: {
+        enabled: true,
+        buttonOptions: {
+          verticalAlign: "bottom"
+        }
+      },
+  
+      series: [
+        {
+          type: "map",
+          name: "Countries",
+          color: "#E0E0E0",
+          enableMouseTracking: false
+        },
+        {
+          type: "mapbubble",
+          name: "Most Users (Impressions)",
+          joinBy: ["iso-a3", "code3"],
+          data: this.bubbleData,
+          minSize: 4,
+          maxSize: "12%",
+          tooltip: {
+            pointFormat: "{point.properties.hc-a2}: {point.z}"
+          }
+        }
+      ]
     };
+    toggleMap(){
+      this.showMap = !this.showMap
+    }
 
 }

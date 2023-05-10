@@ -4,7 +4,7 @@
         <ejs-dashboardlayout [columns]="3" #editLayout [cellSpacing]='cellSpacing' [allowResizing] = "true" [allowDragging]="true">
 
             <e-panels>
-                <e-panel [sizeX]="2" [sizeY]="1" [row]="1" [col]="0">
+                <!-- <e-panel [sizeX]="3" [sizeY]="1" [row]="4" [col]="0">
                     <ng-template #header >
                         <div>SEO system internal DATA</div>
                     </ng-template> 
@@ -12,21 +12,21 @@
                         <div class="list">
                             <div class="list-item">
                                 <mat-icon>managers</mat-icon>
-                                <p><b>3</b> Users</p>
+                                <p><b>{{usersNumber}}</b> Users</p>
                             </div>
                             <div class="separator"> </div>
                             <div class="list-item">
                                 <mat-icon>key</mat-icon>
-                                <p><b>3</b> Keyword Themes</p>
+                                <p><b>{{themesNumber}}</b> Keyword Themes</p>
                             </div>
                             <div class="separator"> </div>
                             <div class="list-item">
                                 <mat-icon>link</mat-icon>
-                                <p><b>3</b> Pages</p>
+                                <p><b>{{pagesNumber}}</b> Pages</p>
                             </div>
                         </div>
                     </ng-template>
-                </e-panel>
+                </e-panel> -->
                 <e-panel [sizeX]="1" [sizeY]="1" [row]="0" [col]="1">
                     <ng-template #content>
                     <div class="seoScore">
@@ -43,7 +43,7 @@
                     <ng-template #content>
                         <div style="max-height: 80%; width: 100%; overflow-y: auto; overflow-x: hidden; position:absolute; bottom:0px;">
                         <ul *ngFor="let page of topPages" id="demo">
-                            <li style="margin-bottom: 6px;"><mat-icon>link</mat-icon>{{page}}</li>
+                            <li style="margin-bottom: 6px;"><mat-icon>link</mat-icon><a href="{{page}}" target="_blank">{{page}}</a></li>
                         </ul>
                     </div>
                     </ng-template>
@@ -67,8 +67,39 @@
                     </div>
                     </ng-template>
                 </e-panel>
+                <e-panel [sizeX]="2" [sizeY]="1" [row]="1" [col]="0">
+                    <ng-template #content>
+                        <ejs-chart id='chart-container' [primaryXAxis]='clickXAxis'[primaryYAxis]='clickYAxis' style="height:100%;">
+                            <e-series-collection>
+                                <e-series [dataSource]='ClicksData' type='Line' xName='date' yName='click' name='Clicks per date'></e-series>
+                            </e-series-collection>
+                        </ejs-chart>
+                    </ng-template>
+                </e-panel>
+                <e-panel [sizeX]="2" [sizeY]="1" [row]="2" [col]="1">
+                    <h1>Ctr</h1>
+                    <ng-template #content>
+                        <ejs-chart id='ctr-chart' [primaryXAxis]='ctrXAxis'[primaryYAxis]='ctrYAxis' style="height:100%;" [palettes]='palette'>
+                            <e-series-collection>
+                                <e-series [dataSource]='CtrData' type='Line' xName='date' yName='ctr' name='CTR per date'></e-series>
+                            </e-series-collection>
+                        </ejs-chart>
+                    </ng-template>
+                </e-panel>
+                <e-panel [sizeX]="1" [sizeY]="1" [row]="3" [col]="0">
+                    <ng-template #header>
+                        <div>Top Countries</div>
+                    </ng-template>
+                    <ng-template #content>
+                        <div style="max-height: 80%; width: 100%; overflow-y: auto; overflow-x: hidden; position:absolute; bottom:0px;">
+                            <ul *ngFor="let country of topCountries ; let i = index" id="demo">
+                                <li>{{i + 1}} - {{country}}</li>
+                            </ul>
+                        </div>
+                    </ng-template>
+                </e-panel>
             </e-panels>
-        </ejs-dashboardlayout>
 
+        </ejs-dashboardlayout>
     </div>
 </div>

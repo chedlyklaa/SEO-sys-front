@@ -5,15 +5,17 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  border-radius: 25px !important;
 }
   .control-section {
+    padding-left: 20px;
     width: 100%;
+    margin-top: 50px;
   }
 
   .container{
-
-    width: 100%;
-    height: 100vh;
+    
+    width: 100vw;
     display: flex;
     text-align:left;
     align-items: center;
@@ -25,9 +27,10 @@
     align-items: center;
     text-align: center;
     font-weight: bolder;
-    background-color: #e7e7e7;
+    background-color: #ffffff;
     height: 20%;
     font-size: medium;
+    border-radius: 25px !important;
 }
 .e-dashboardlayout.e-control .e-panel .e-panel-container .e-panel-content{
   display: flex;
@@ -112,3 +115,11 @@ canvas {
   width: 3px;
   background-color: rgb(173, 173, 173);
 }
+.card{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
