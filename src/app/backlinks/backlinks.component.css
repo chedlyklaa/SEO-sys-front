@@ -1,0 +1,20 @@
+h2{
+    color: black;
+}
+.card
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 20%);
+    border-radius: 25px;
+    box-shadow: inset;
+    width: 80%;
+    padding: 50px;
+}
+ 
+  table{
+    margin-bottom: 100px;
+  }
+
+  
