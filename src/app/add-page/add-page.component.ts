@@ -1,11 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { PageService } from '../service/page.service';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-page',
   templateUrl: './add-page.component.html',
-  styleUrls: ['./add-page.component.css']
+  styleUrls: ['./add-page.component.css'],
+  // encapsulation: ViewEncapsulation.None
 })
 export class AddPageComponent {
   isPopoverOpen = false;

@@ -38,6 +38,10 @@
                     <mat-icon>subject</mat-icon>
                     <span class="e-text"  [hidden]="!enableDock" title="info">Robots.txt</span>
                 </li>
+                <li class="sidebar-item" routerLink="/sitemap" [class.selected]="isActive('/backlinks')">
+                    <mat-icon>link</mat-icon>
+                    <span class="e-text"  [hidden]="!enableDock" title="info">Backlinks</span>
+                </li>
             </div>
         </ul>
         <ul>
@@ -51,11 +55,11 @@
 <div id="main-content">
     <div class="control-container" *ngIf="isLoggedIn">
         <ejs-appbar cssClass="nav" >
-          <div class="logo"><img src="../assets/logo.svg"><span>Ijeni SEO System</span></div>
+          <div class="logo"><img src="../assets/logo.svg">Ijeni<span>SEO System</span></div>
           <div class="e-appbar-spacer"></div>
           <button class="btn btn-warning"><a href="https://www.ijeni.tn"  target="_blank" style="text-decoration: none; color: white;">Go To Ijeni.tn!</a> </button>
         </ejs-appbar>
-      </div>
+     </div> 
     <div class="content">
         <div class="sub-title"><router-outlet></router-outlet></div>
     </div>  

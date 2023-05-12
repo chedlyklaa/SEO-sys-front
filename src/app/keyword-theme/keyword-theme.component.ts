@@ -43,7 +43,7 @@ export class KeywordThemeComponent implements OnInit {
   }
   addTheme(){
     this.keywordThemesService.addTheme(this.newTheme).subscribe();
-    setInterval(()=>{
+    setTimeout(()=>{
       this.loadThemes()
     }, 1000)
   

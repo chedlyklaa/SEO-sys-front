@@ -41,6 +41,7 @@ export class DashboardComponent {
     ctrYAxis: Object;
     ctrXAxis : Object
     palette : string[] = []
+    palette2 : string[] = []
 
     ngOnInit(){
       this.dashboardService.getData().subscribe(response => {
@@ -86,8 +87,9 @@ export class DashboardComponent {
       this.pagesService.getAllPages().subscribe(response => {
         this.pagesNumber = response.length
       })
-      this.palette = ["#E94649", "#F6B53F", "#6FAAB0", "#C4C24A"];
-      this.trackThickness = 5;
+      this.palette = ["#ffd100"];
+      this.palette2=["#ff7b00"]
+      this.trackThickness = 15;
       this.progressThickness = 15;
       this.value = 91;
       this.animation = { enable: true, duration: 2000, delay: 0 };
@@ -106,59 +108,8 @@ export class DashboardComponent {
     public textRender2(args: ITextRenderEventArgs): void {
         args.text = this.value.toString() + '%';
      }
-
-    
     
     public cellSpacing: number[] = [10, 10];
-    showMap : boolean = false
-    bubbleData = [{ code3: "TUN", z: 105 }, { code3: "TUN", z: 1000}];
-    chartOptions: Highcharts.Options = {
-      chart: {
-        borderWidth: 1,
-        map: worldMap
-      },
-  
-      title: {
-        text: "Ijeni Usage Word Map"
-      },
-  
-      subtitle: {
-        text: "Representative map chart of ijeni users around the world"
-      },
-  
-      legend: {
-        enabled: false
-      },
-  
-      mapNavigation: {
-        enabled: true,
-        buttonOptions: {
-          verticalAlign: "bottom"
-        }
-      },
-  
-      series: [
-        {
-          type: "map",
-          name: "Countries",
-          color: "#E0E0E0",
-          enableMouseTracking: false
-        },
-        {
-          type: "mapbubble",
-          name: "Most Users (Impressions)",
-          joinBy: ["iso-a3", "code3"],
-          data: this.bubbleData,
-          minSize: 4,
-          maxSize: "12%",
-          tooltip: {
-            pointFormat: "{point.properties.hc-a2}: {point.z}"
-          }
-        }
-      ]
-    };
-    toggleMap(){
-      this.showMap = !this.showMap
-    }
+
 
 }

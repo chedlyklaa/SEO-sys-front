@@ -8,13 +8,13 @@
   border-radius: 25px !important;
 }
   .control-section {
+    
     padding-left: 20px;
     width: 100%;
-    margin-top: 50px;
   }
 
   .container{
-    
+
     width: 100vw;
     display: flex;
     text-align:left;
@@ -28,14 +28,18 @@
     text-align: center;
     font-weight: bolder;
     background-color: #ffffff;
-    height: 20%;
+    height: 10%;
     font-size: medium;
-    border-radius: 25px !important;
+    border-radius: 25px 25px 0 0px;
+    padding-top: 5px;
+    box-shadow: rgba(255, 217, 217, 0.2) 0px 8px 24px;
 }
 .e-dashboardlayout.e-control .e-panel .e-panel-container .e-panel-content{
   display: flex;
   flex-direction: column;
   justify-content: center;
+  border-radius: 25px;
+  margin-top: 10px;
 }
 
 
@@ -57,11 +61,11 @@
   display: flex;
   align-items: center;
   padding: 10px;
-  border: 1px solid #ddd;
   width: 100%;
+  border-radius: 25px;
 
 }
-#demo li:nth-child(odd) { background: #f7f7f7; font-weight: bold;} 
+#demo li:nth-child(odd) { background: #fffdf3; font-weight: bold;} 
 
 #demo::-webkit-scrollbar-track {
   background-color: #f5f5f5 !important;
@@ -123,3 +127,19 @@ canvas {
 }
 
 
+.title{
+  margin: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 280px;
+}
+.title > h1{
+  margin-top: 6px;
+  font-weight: bold;
+  color: rgb(58, 58, 58);
+}
+.title > mat-icon{
+  scale: 1.4;
+  color: #ff7b00;
+}

@@ -54,14 +54,16 @@ li .e-text {
     margin-bottom: 30px;
 }
 .sub-title {
-    background-color: rgb(246, 250, 255);
+   background-color: rgb(246, 251, 255);
     font-size: 20px;
     font-weight: 500;
     color: #555555;
     width: 100%;
     
 }
+
 .nav{
+
     padding: 12px;
     height: 70px;
     width:100%;
@@ -69,18 +71,23 @@ li .e-text {
 }
 
 .logo{
-    max-width: 200px;
+    max-width: 220px;
     max-height: 30px;
     display: flex;
     justify-content: space-around;
 }
 .logo img{
     height: 100%;
+    margin-right: 5px;
 }
-.logo span{
+.logo {
     font-family:'Montserrat', sans-serif;
+    font-weight: lighter;
+    font-size: 20px;
+    color: #333;
+}
+.logo span {
     font-weight: bold;
-    font-size: larger;
 }
 .btn-warning{
     width: 10%;
@@ -93,10 +100,15 @@ li .e-text {
 }
 
 .sidebar-item.selected {
-    background-color: #f0f0f0;
+    background-color:  #ff7b00;
+    ;
     color: #333;
 
   }
   .sidebar-item.selected > span {
-    font-weight: bold;
+    color: white;
+    
+  }
+  .sidebar-item.selected > mat-icon {
+    color: white;
   }

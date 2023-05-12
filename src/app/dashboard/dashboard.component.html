@@ -1,6 +1,8 @@
 <div class="container">
     <div class="control-section">
-        <h1>Dashboard</h1>
+        <div class="title">
+            <mat-icon>dashboard</mat-icon> <h1>Dashboard</h1>
+        </div>
         <ejs-dashboardlayout [columns]="3" #editLayout [cellSpacing]='cellSpacing' [allowResizing] = "true" [allowDragging]="true">
 
             <e-panels>
@@ -30,7 +32,7 @@
                 <e-panel [sizeX]="1" [sizeY]="1" [row]="0" [col]="1">
                     <ng-template #content>
                     <div class="seoScore">
-                        <ejs-progressbar  id='determinate' type='Circular' innerRadius='90%' height='250' [value]="value"  [animation]='animation'   [trackThickness]='trackThickness' [progressThickness]='progressThickness' progressColor='lightgreen' [labelStyle]='labelStyle'  (textRender)='textRender2($event)'   [showProgressValue]='showProgressValue'>
+                        <ejs-progressbar  id='determinate' type='Circular' innerRadius='90%' height='250' [value]="value"  [animation]='animation'   [trackThickness]='trackThickness' [progressThickness]='progressThickness' progressColor='#50C878' trackColor= '#AFE1AF' [labelStyle]='labelStyle'  (textRender)='textRender2($event)'   [showProgressValue]='showProgressValue'>
                         </ejs-progressbar>
                         <h3>SEO Score</h3>
                     </div>
@@ -38,12 +40,13 @@
                 </e-panel>
                 <e-panel [sizeX]="1" [sizeY]="1" [row]="0" [col]="0">
                     <ng-template #header>
-                        <div>Top visited pages</div>
+                        <div style="display: flex; justify-content: center;"><mat-icon>arrow_upward</mat-icon> Top visited pages</div>
                     </ng-template>
                     <ng-template #content>
-                        <div style="max-height: 80%; width: 100%; overflow-y: auto; overflow-x: hidden; position:absolute; bottom:0px;">
+                        <div style="max-height: 90%; width: 100%; overflow-y: auto; overflow-x: hidden; position:absolute; bottom:0px;">
                         <ul *ngFor="let page of topPages" id="demo">
-                            <li style="margin-bottom: 6px;"><mat-icon>link</mat-icon><a href="{{page}}" target="_blank">{{page}}</a></li>
+                            <li></li>
+                            <li style="margin-bottom: 6px;"><mat-icon>link</mat-icon><a href="{{page}}" target="_blank" style="text-decoration: none; color: rgb(76, 76, 76);">{{page}}</a></li>
                         </ul>
                     </div>
                     </ng-template>
@@ -51,10 +54,10 @@
 
                 <e-panel [sizeX]="1" [sizeY]="2" [row]="0" [col]="2">
                     <ng-template #header>
-                        <div>Top queries</div>
+                        <div style="display: flex; justify-content: center;"><mat-icon>search</mat-icon> Top queries</div>
                     </ng-template>
                     <ng-template #content>
-                        <div style="max-height: 80%; width: 100%; overflow-y: auto; overflow-x: hidden; position:absolute; bottom:0px;">
+                        <div style="max-height: 90%; width: 100%; overflow-y: auto; overflow-x: hidden; position:absolute; bottom:0px;">
                             <ul *ngFor="let query of topQueries ; let i = index" id="demo">
                                 <li><mat-icon>key</mat-icon> - {{query}}</li>
 
@@ -68,31 +71,37 @@
                     </ng-template>
                 </e-panel>
                 <e-panel [sizeX]="2" [sizeY]="1" [row]="1" [col]="0">
+                    <ng-template #header>
+
+                    </ng-template>
                     <ng-template #content>
-                        <ejs-chart id='chart-container' [primaryXAxis]='clickXAxis'[primaryYAxis]='clickYAxis' style="height:100%;">
+                        <ejs-chart id='chart-container' [primaryXAxis]='clickXAxis'[primaryYAxis]='clickYAxis' style="height:100%;" [palettes]='palette'>
                             <e-series-collection>
-                                <e-series [dataSource]='ClicksData' type='Line' xName='date' yName='click' name='Clicks per date'></e-series>
+                                <e-series [dataSource]='ClicksData' type='Line' xName='date' yName='click' name='Clicks per date' width='3'></e-series>
                             </e-series-collection>
                         </ejs-chart>
                     </ng-template>
                 </e-panel>
                 <e-panel [sizeX]="2" [sizeY]="1" [row]="2" [col]="1">
-                    <h1>Ctr</h1>
+                    <ng-template #header>
+
+                    </ng-template>
                     <ng-template #content>
-                        <ejs-chart id='ctr-chart' [primaryXAxis]='ctrXAxis'[primaryYAxis]='ctrYAxis' style="height:100%;" [palettes]='palette'>
+                        <ejs-chart id='ctr-chart' [primaryXAxis]='ctrXAxis'[primaryYAxis]='ctrYAxis' style="height:100%;" [palettes]='palette2'>
                             <e-series-collection>
-                                <e-series [dataSource]='CtrData' type='Line' xName='date' yName='ctr' name='CTR per date'></e-series>
+                                <e-series [dataSource]='CtrData' type='Line' xName='date' yName='ctr' name='CTR per date' width='3'></e-series>
                             </e-series-collection>
                         </ejs-chart>
                     </ng-template>
                 </e-panel>
                 <e-panel [sizeX]="1" [sizeY]="1" [row]="3" [col]="0">
                     <ng-template #header>
-                        <div>Top Countries</div>
+                        <div style="display: flex; justify-content: center;"><mat-icon>place</mat-icon> Top countries</div>
                     </ng-template>
                     <ng-template #content>
                         <div style="max-height: 80%; width: 100%; overflow-y: auto; overflow-x: hidden; position:absolute; bottom:0px;">
                             <ul *ngFor="let country of topCountries ; let i = index" id="demo">
+                                <li></li>
                                 <li>{{i + 1}} - {{country}}</li>
                             </ul>
                         </div>

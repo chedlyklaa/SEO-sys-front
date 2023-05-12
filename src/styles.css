@@ -22,12 +22,12 @@ body{
   }
   
   ::-webkit-scrollbar-track {
-    background-color: #ffffff;
+    background-color: rgba(255, 255, 255, 0); 
     box-shadow: inset;
   }
   
   ::-webkit-scrollbar-thumb {
-    background-color: gray;
+    background-color: rgb(238, 238, 238);
 
   }
   
