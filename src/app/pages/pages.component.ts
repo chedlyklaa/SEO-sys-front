@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { PageService } from '../service/page.service';
 import { Page } from '../Page';
 import { Router } from '@angular/router';
-
+import { NgxUiLoaderService } from 'ngx-ui-loader';
 @Component({
   selector: 'app-pages',
   templateUrl: './pages.component.html',
@@ -12,12 +12,18 @@ export class PagesComponent {
   showUpdateForm : boolean = false
   selectedPage : Page;
   pages : Page[] = []
-  constructor(private pageService : PageService, private router : Router){}
+  constructor(private pageService : PageService, private router : Router, private ngxLoader : NgxUiLoaderService){}
   ngOnInit(){
+    this.ngxLoader.start()
     this.loadPages();
+    this.ngxLoader.stop()
   }
   loadPages(){
-    this.pageService.getAllPages().subscribe(pages => this.pages = pages)
+    this.ngxLoader.start()
+    this.pageService.getAllPages().subscribe(pages => {
+      this.pages = pages,
+      this.ngxLoader.stop()
+    })
   }
   deletePage(pageId : string){
     this.pageService.deletePage(pageId).subscribe(

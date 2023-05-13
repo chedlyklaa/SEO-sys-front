@@ -1,4 +1,5 @@
-<div class="container">
+<div class="card1 bg-light">
+  <div class="container">
     <h2>Add a New Page</h2>
     <form (ngSubmit)="onSubmit()">
       <div class="form-group">
@@ -29,21 +30,22 @@
 
     </form>
     <button (click)="isPopoverOpen = true">Preview Social Media Appearance</button>
-    <div class="card">
-      <div class="popover" *ngIf="isPopoverOpen" style="max-width: 500px;">
-        <div class="popover-header">Social Media Appearance Preview
-          <button style="width: 30px; height:30px; color:white;" type="button" class="close" aria-label="Close" (click)="isPopoverOpen = false;">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="popover-body">
-          <img [src]="ogImage" alt="previewImage" style="max-width: 100%;">
-          <div class="popover-title"><h2 style="font-weight: bold;">{{ogTitle}}</h2></div>
-          <p>{{ogDescription}}</p>
-        </div>
-
-      </div>
-
-    </div>
   </div>
-  
+
+</div>
+<div class="card">
+  <div class="popover" *ngIf="isPopoverOpen" style="max-width: 700px;">
+    <div class="popover-header">Social Media Appearance Preview
+      <button style="width: 30px; height:30px; color:white;" type="button" class="close" aria-label="Close" (click)="isPopoverOpen = false;">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="popover-body">
+      <img [src]="ogImage" alt="previewImage" style="max-width: 100%;">
+      <div class="popover-title"><h3 style="font-weight: bold;">{{ogTitle}}</h3></div>
+      <p>{{ogDescription}}</p>
+    </div>
+
+  </div>
+
+</div>

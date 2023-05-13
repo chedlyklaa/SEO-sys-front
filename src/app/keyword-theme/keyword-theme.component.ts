@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { KeywordTheme } from '../KeywordTheme';
 import { ThemesService } from '../service/themes.service';
 import { Router } from '@angular/router';
+import  { NgxUiLoaderService } from "ngx-ui-loader";
 
 @Component({
   selector: 'app-keyword-theme',
@@ -15,15 +16,19 @@ export class KeywordThemeComponent implements OnInit {
   newTheme : string = ''
   error : string = ''
 
-  constructor(private keywordThemesService: ThemesService, private router : Router ) {}
+  constructor(private keywordThemesService: ThemesService, private router : Router, private ngxLoader : NgxUiLoaderService ) {}
 
   ngOnInit(): void {
+    this.ngxLoader.start()
     this.loadThemes()
+    this.ngxLoader.stop()
   }
   
   loadThemes(){
+    this.ngxLoader.start
     this.keywordThemesService.getAll().subscribe(keywordThemes => {
       this.keywordThemes = keywordThemes
+      this.ngxLoader.stop
       console.log(this.keywordThemes)
     });
   }
@@ -31,21 +36,28 @@ export class KeywordThemeComponent implements OnInit {
     this.selectedKeywordTheme = keywordTheme;
   }
   deleteTheme(keywordTheme: KeywordTheme): void {
+    
     if (!confirm(`Are you sure you want to delete the keyword theme "${keywordTheme.theme}"?`)) {
       return;
     }
+    this.ngxLoader.start()
     this.keywordThemesService.deleteTheme(keywordTheme._id).subscribe(() => {
       this.keywordThemes = this.keywordThemes.filter(t => t !== keywordTheme);
       if (this.selectedKeywordTheme === keywordTheme) {
         this.selectedKeywordTheme = null;
       }
+      this.loadThemes()
+      this.ngxLoader.stop()
     });
   }
   addTheme(){
-    this.keywordThemesService.addTheme(this.newTheme).subscribe();
-    setTimeout(()=>{
+    this.ngxLoader.start()
+    this.keywordThemesService.addTheme(this.newTheme).subscribe(res=>{
+      console.log(res)
       this.loadThemes()
-    }, 1000)
+      this.ngxLoader.stop()
+    });
+ 
   
   }
   addKeyword(): void {

@@ -1,4 +1,6 @@
 <div id="container">
+
+
 <ejs-sidebar #dockBar id="dockSidebar"  [enableDock]='enableDock' [width]='width' [dockSize]='dockSize' *ngIf="isLoggedIn" >
     <div class="dock">
         <ul>
@@ -34,11 +36,11 @@
                     <mat-icon>map</mat-icon>
                     <span class="e-text"  [hidden]="!enableDock" title="info">Sitemap</span>
                 </li>
-                <li class="sidebar-item" routerLink="/sitemap" [class.selected]="isActive('/sitemap')">
+                <li class="sidebar-item" routerLink="/manage-robots" [class.selected]="isActive('/manage-robots')">
                     <mat-icon>subject</mat-icon>
-                    <span class="e-text"  [hidden]="!enableDock" title="info">Robots.txt</span>
+                    <span class="e-text"  [hidden]="!enableDock" title="info">Robots.txt file</span>
                 </li>
-                <li class="sidebar-item" routerLink="/sitemap" [class.selected]="isActive('/backlinks')">
+                <li class="sidebar-item" routerLink="/backlinks" [class.selected]="isActive('/backlinks')">
                     <mat-icon>link</mat-icon>
                     <span class="e-text"  [hidden]="!enableDock" title="info">Backlinks</span>
                 </li>
@@ -60,6 +62,7 @@
           <button class="btn btn-warning"><a href="https://www.ijeni.tn"  target="_blank" style="text-decoration: none; color: white;">Go To Ijeni.tn!</a> </button>
         </ejs-appbar>
      </div> 
+
     <div class="content">
         <div class="sub-title"><router-outlet></router-outlet></div>
     </div>  

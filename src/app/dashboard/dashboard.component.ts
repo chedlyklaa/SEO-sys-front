@@ -8,6 +8,7 @@ import worldMap from "@highcharts/map-collection/custom/world.geo.json";
 import { UserService } from '../service/user.service';
 import { ThemesService } from '../service/themes.service';
 import { PageService } from '../service/page.service';
+import { NgxUiLoaderService } from 'ngx-ui-loader';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -22,7 +23,7 @@ export class DashboardComponent {
  
 
     public dashboard: DashboardLayoutComponent;
-    constructor(private http : HttpClient, private dashboardService : DashboardService, private userService : UserService, private themesService : ThemesService, private pagesService : PageService) {
+    constructor(private http : HttpClient, private dashboardService : DashboardService, private userService : UserService, private themesService : ThemesService, private pagesService : PageService, private ngxLoader : NgxUiLoaderService) {
         
     }
     topQueries : []
@@ -44,6 +45,7 @@ export class DashboardComponent {
     palette2 : string[] = []
 
     ngOnInit(){
+      this.ngxLoader.start()
       this.dashboardService.getData().subscribe(response => {
         this.topQueries = response["top-queries"]
         this.topQueriesCtr = response["ctrs"]
@@ -58,6 +60,7 @@ export class DashboardComponent {
         })
         this.topCountries = response['topCountries']
         console.log(this.topCountries)
+
       })
       console.log(this.ClicksData)
       console.log(this.CtrData)
@@ -95,7 +98,7 @@ export class DashboardComponent {
       this.animation = { enable: true, duration: 2000, delay: 0 };
       this.labelStyle = { color: 'green', fontWeight: 'bold'};
       this.showProgressValue = true;
-      
+      this.ngxLoader.stop()
   }
 
   

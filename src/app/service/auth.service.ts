@@ -35,6 +35,9 @@ export class AuthService {
   logout(){
      localStorage.removeItem("user") 
   }
+  getRole(){
+    return JSON.parse(localStorage.getItem('user')!).roles;
+  }
   // User management ==> new service called userSevice not here!!!
   RegisterUser(inputdata:any){
     return this.http.post(this.apiUrl,inputdata)

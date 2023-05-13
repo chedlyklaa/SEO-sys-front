@@ -12,5 +12,9 @@ export class DashboardService {
   getData() : Observable<any>{
     return this.http.get<any>(`${this.apiUrl}`)
   }
+  getBacklinks(){
+    return this.http.get<any>(`${this.apiUrl}/backlinks`)
+  }
+
 }
 

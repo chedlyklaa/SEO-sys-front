@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { UserService } from '../service/user.service';
+import { NgxUiLoaderService } from 'ngx-ui-loader';
 
 
 @Component({
@@ -12,17 +13,20 @@ export class UserListComponent {
   selectedUser: any = {};
   showUpdateForm = false;
   currentPage = 1;
-  itemsPerPage = 3;
+  itemsPerPage = 4;
   maxSize = 5;
   rotate = true;
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private ngxLoader : NgxUiLoaderService) { }
 
   ngOnInit() {
+    this.ngxLoader.start()
     this.userService.getAllUsers().subscribe(users => {
       console.log(users)
       this.users = users;
+
     });
+    this.ngxLoader.stop()
   }
 
   get totalUsers() {
@@ -51,6 +55,7 @@ export class UserListComponent {
   }
 
   deleteUser(userId : string) {
+    this.ngxLoader.start()
       this.userService.deleteUserById(userId).subscribe(() => {
         // Remove the deleted user from the users array
         this.users = this.users.filter(u => u.id !== userId);
@@ -62,6 +67,6 @@ export class UserListComponent {
           this.users = users;
         });
       });
-    
+    this.ngxLoader.stop()
   }
 }

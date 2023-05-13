@@ -1,0 +1,78 @@
+<div class="container">
+<ngx-ui-loader></ngx-ui-loader>
+  <div class="row">
+  <h5>Backlinks from external websites</h5>
+  <div class="card bg-light backlinks">
+    <table class="table table-light table-striped table-hover">
+      <thead>
+        <tr>
+          <th>Link</th>
+          <th style="display: flex; align-items: center">Date Crawled</th>
+          <th>Visit</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of backlinks">
+          <td>{{ item.backlink }}</td>
+          <td>{{ item.dateCrawled }}</td>
+          <td>
+            <button class="btn btn-danger btn-sm">
+              <a
+                style="color: white; text-decoration: none"
+                href="{{ item.backlink }}"
+                target="_blank"
+                >Visit</a
+              >
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  </div>
+  <div class="row">
+    <h5>Linking websites</h5>
+    <div class="card bg-light pageLinking">
+      <table class="table table-light table-striped table-hover">
+        <thead>
+          <tr>
+            <th>Link</th>
+            <th style="display: flex; align-items: center">Linking Pages</th>
+            <th>Visit</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of websites">
+            <td>{{ item.website }}</td>
+            <td>{{ item.linkingPage }}</td>
+            <td>
+              <button class="btn btn-danger btn-sm">
+                <a
+                  style="color: white; text-decoration: none"
+                  href="https://www.{{item.website}}"
+                  target="_blank"
+                  >Visit</a>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card bg-light statisticsElement">
+      <div class="elements">
+        <div class="element">
+          <h1>{{ linkingPages }}</h1>
+          <h5>Linking Pages</h5>
+        </div>
+      </div>
+    </div>
+    <div class="card bg-light statisticsElement">
+      <div class="elements">
+        <div class="element">
+          <h1>{{ linkingWebsites }}</h1>
+          <h5>Linking Websites</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

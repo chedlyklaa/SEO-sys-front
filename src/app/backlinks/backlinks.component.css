@@ -1,0 +1,66 @@
+.container{
+    width: 100%;
+    height: 99vh;
+    margin-top: 1vh;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: space-around;
+}
+.card
+{
+    box-shadow: inset;
+    width: 100%;
+    height: 40%;
+    overflow: auto;
+    padding: 50px;
+}
+h5{
+    font-weight: bold;
+}
+th{
+    font-size: 12px;
+}
+.row{
+    height: 40%;
+    display: flex;
+    justify-content: space-between;
+}
+.backlinks{
+    height: 100%;
+}
+.pageLinking{
+    width: 49%;
+    height: 100%;
+}
+
+.statistics{
+    width: 49%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+}
+.elements{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.element{
+    height: 100%;
+    font-weight: 900;
+    text-align: center;
+}
+.element > h1{
+    font-weight: bold;
+}
+.statisticsElement{
+    width: 22%;
+    height: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

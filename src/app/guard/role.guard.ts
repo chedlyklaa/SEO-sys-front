@@ -12,18 +12,16 @@ export class RoleGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot):   Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       const allowedRoles = route.data['roles'] as Array<string>;
-      const userRole  = this.authService.getuserrole() ;
+      const userRole = this.authService.getRole();
 
-      if (this.authService.isloggedin()) {
-        const userRole = this.authService.getrole();
         if (allowedRoles && allowedRoles.indexOf(userRole as string) === -1) {
           this.router.navigate(['/']);
+          console.log(userRole)
           return false;
         }
+        console.log(userRole)
         return true;
     }
-    this.router.navigate(['/']);
-        return false;
-  }
+
 }
 
