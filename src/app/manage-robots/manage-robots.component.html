@@ -10,7 +10,7 @@
       <tbody>
         <tr *ngFor="let link of pagedLinks">
           <td>{{link?.link}}</td>
-          <td><button class="btn btn-danger" (click)="deleteLink(link?.link )">Delete</button></td>
+          <td><button class="btn btn-danger" (click)="deleteLink(link )">Delete</button></td>
         </tr>
       </tbody>
     </table>

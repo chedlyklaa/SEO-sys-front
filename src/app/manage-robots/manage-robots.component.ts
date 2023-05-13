@@ -12,19 +12,16 @@ export class ManageRobotsComponent {
   link: string ;
   constructor(private http: HttpClient, private robotsService: RobotsService, private router : Router) { }
   links : string[] = []
-  Links :any
   ngOnInit(): void {
     this.getlinks();
-    console.log(this.Links)
     
   }
-  getlinks() {
-    this.robotsService.getlinks().subscribe(response => {
-      this.Links=response.link
-      console.log("response",this.Links)
+  getlinks()   {
+      this.robotsService.getlinks().subscribe(response => {
+        this.links=response.link
+        console.log("response",this.links)
+      });
     }
-    )
-  }
   deleteLink(link:string){
     this.robotsService.deleteLink(link).subscribe(response =>{
       console.log(response)
@@ -52,32 +49,37 @@ export class ManageRobotsComponent {
       }
       ,1000)
     }
-  get pagedLinks() {
+  get pagedLinks() {if (this.links) {
     const startIndex = (this.currentPage - 1) * this.itemsPerPage;
     const endIndex = startIndex + this.itemsPerPage;
-    return this.Links.slice(startIndex, endIndex);
+    return this.links.slice(startIndex, endIndex);
+  } else {
+    return [];
+  }
   }
   currentPage = 1;
   itemsPerPage = 3;
   maxSize = 5;
   rotate = true;
   get totalLinks() {
-    return this.Links.length;
+    return this.links.length;
   }
   pageChanged(event: any): void {
     this.currentPage = event.page;
      }
 
-  disallowedLinks = this.links;
+     
 
   generateRobots() {
+    console.log(this.links)
     // Combine the user-provided allowed and disallowed links into the robots.txt format
     /*const robots = `User-agent: *
 Disallow: ${this.disallowedLinks.join(', ')}
 Allow: /public`;*/
 const robots = `User-agent: *
-${this.disallowedLinks.map(link => `Disallow: ${link}`).join('\n')}
+${this.links.map(link => `Disallow: ${link.link}`).join('\n')}
 \nAllow: `;
+    
     // Create a new blob with the robots.txt content
     const blob = new Blob([robots], { type: "text/plain" });
 
