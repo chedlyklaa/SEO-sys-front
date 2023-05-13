@@ -31,6 +31,9 @@ import { AppBarModule } from "@syncfusion/ej2-angular-navigations";
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { PageUpdateComponent } from './page-update/page-update.component';
 import { AuthGuard } from './guard/auth.guard';
+import { ManageRobotsComponent } from './manage-robots/manage-robots.component';
+import { ManageSitemapComponent } from './manage-sitemap/manage-sitemap.component';
+import { BacklinksComponent } from './backlinks/backlinks.component';
 
 
 @NgModule({
@@ -49,6 +52,9 @@ import { AuthGuard } from './guard/auth.guard';
     AddPageComponent,
     DashboardComponent,
     PageUpdateComponent,
+    ManageRobotsComponent,
+    ManageSitemapComponent,
+    BacklinksComponent,
   
     
   ],

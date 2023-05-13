@@ -1,0 +1,22 @@
+<div class="card bg-light">
+  <div class="Themes" >
+    <h2>Backlinks from external websites</h2> 
+    <table class="table table-light table-striped table-hover" >
+      <thead>
+        <tr>
+          <th>Link</th>
+          <th>Visite the website</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let link of Links" >
+          <td>{{link}}</td>
+          <td>
+            <button class="btn btn-danger btn-sm" ><a style="color: white;text-decoration: none; " href="{{link}}"  target="_blank">Visite</a></button>
+        </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  </div>
+  

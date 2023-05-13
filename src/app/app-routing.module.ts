@@ -13,7 +13,9 @@ import { KeywordThemeComponent } from './keyword-theme/keyword-theme.component';
 import { PagesComponent } from './pages/pages.component';
 import { AddPageComponent } from './add-page/add-page.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-
+import { ManageRobotsComponent } from './manage-robots/manage-robots.component';
+import { BacklinksComponent } from './backlinks/backlinks.component';
+import { ManageSitemapComponent } from './manage-sitemap/manage-sitemap.component';
 const routes: Routes = [
 
   // without authGuard:
@@ -21,13 +23,15 @@ const routes: Routes = [
   {component:ForgetPasswordComponent, path:'forget-password'},
   {component: ChangePasswordComponent, path: 'change-password/:token'},
   //with authGuard:
-  {component:RegisterComponent, path:'register',  canActivate: [AuthGuard] },
+  {component:RegisterComponent, path:'register',  canActivate: [AuthGuard, RoleGuard], data: { roles: ['admin'] },  },
   {component:HomeComponent, path:'', canActivate: [AuthGuard]},
   {component:UserListComponent, path:'users', canActivate: [AuthGuard]},
   {component:KeywordThemeComponent, path:'keywords', canActivate: [AuthGuard]},
   {component:PagesComponent, path:'pages', canActivate: [AuthGuard]},
-  {component:AddPageComponent, path:'add-page', canActivate: [AuthGuard]},
-  {component: DashboardComponent, path:'dashboard', canActivate: [AuthGuard]}
+  {component:AddPageComponent, path:'add-page', canActivate: [AuthGuard, RoleGuard], data: { roles: ['admin'] },},
+  {component:ManageRobotsComponent, path:'manage-robots', canActivate: [AuthGuard]},
+  {component:BacklinksComponent, path:'backlinks', canActivate: [AuthGuard]},
+  {component:ManageSitemapComponent, path:'manage-sitemap', canActivate: [AuthGuard]},
 ];
 
 @NgModule({
