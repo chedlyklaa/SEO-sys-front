@@ -4,9 +4,12 @@
 <ejs-sidebar #dockBar id="dockSidebar"  [enableDock]='enableDock' [width]='width' [dockSize]='dockSize' *ngIf="isLoggedIn" >
     <div class="dock">
         <ul>
-            <li class="sidebar-item" >
+            <li class="sidebar-item" style="display: flex; align-items: center;">
                 <mat-icon>account_circle</mat-icon>
-                <span class="e-text"  [hidden]="!enableDock" title="settings">{{username}}</span>
+                <div>
+                    <span class="e-text"  [hidden]="!enableDock" title="account" style="color: orangered;">{{role}}</span><br>
+                    <span class="e-text"  [hidden]="!enableDock" title="account" style="font-weight: bold;">{{username}}</span>
+                </div>
             </li>
         </ul>
         <ul>
@@ -15,24 +18,24 @@
                 <mat-icon>menu</mat-icon>
                 <span class="e-text" [hidden]="!enableDock" title="menu">Menu</span>
             </li>
-            <li class="sidebar-item" routerLink="/users" [class.selected]="isActive('/users')">
+            <li class="sidebar-item" routerLink="/users" [class.selected]="isActive('/users')" *ngIf="role == 'admin'">
                 <mat-icon>manager</mat-icon>
                 <span class="e-text" [hidden]="!enableDock" title="home" >Users</span>
             </li>
-            <li class="sidebar-item" routerLink="/dashboard" [class.selected]="isActive('/dashboard')">
+            <li class="sidebar-item" routerLink="/dashboard" [class.selected]="isActive('/dashboard')" *ngIf="role == 'admin' || role == 'seo-specialist'">
                 <mat-icon>dashboard</mat-icon>
                 <span class="e-text" [hidden]="!enableDock" title="profile">Dashboard</span>
             </li>
-            <li class="sidebar-item" routerLink="/pages" [class.selected]="isActive('/pages')">
+            <li class="sidebar-item" routerLink="/pages" [class.selected]="isActive('/pages')" *ngIf="role != 'developer'">
                 <mat-icon >webpage</mat-icon>
                 <span class="e-text"  [hidden]="!enableDock" title="info">Pages Templates</span>
             </li>
-            <li class="sidebar-item" routerLink="/keywords" [class.selected]="isActive('/keywords')">
+            <li class="sidebar-item" routerLink="/keywords" [class.selected]="isActive('/keywords')" *ngIf="role != 'developer'">
                 <mat-icon>keyword</mat-icon>
                 <span class="e-text"  [hidden]="!enableDock" title="info">Keywords</span>
             </li>
-            <div class="dev">
-                <li class="sidebar-item" routerLink="/sitemap" [class.selected]="isActive('/sitemap')">
+            <div class="dev" *ngIf="role == 'developer' || role == 'admin'">
+                <li class="sidebar-item" routerLink="/manage-sitemap" [class.selected]="isActive('/manage-sitemap')">
                     <mat-icon>map</mat-icon>
                     <span class="e-text"  [hidden]="!enableDock" title="info">Sitemap</span>
                 </li>

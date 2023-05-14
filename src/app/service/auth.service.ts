@@ -38,32 +38,33 @@ export class AuthService {
   getRole(){
     return JSON.parse(localStorage.getItem('user')!).roles;
   }
-  // User management ==> new service called userSevice not here!!!
-  RegisterUser(inputdata:any){
-    return this.http.post(this.apiUrl,inputdata)
-  }
-  GetUserbyCode(id:any){
-    return this.http.get(this.apiUrl+'/'+id);
-  }
-  GetUserbyEmail(email:any){
-    return this.http.get(this.apiUrl+'?email='+email);
-  }
-  Getall(){
-    return this.http.get(this.apiUrl);
-  }
-  updateuser(id:any,inputdata:any){
-    return this.http.put(this.apiUrl+'/'+id,inputdata);
-  }
-  getuserrole(){
-    return this.http.get('http://localhost:3000/role');
-  }
-  isloggedin(){
-    return sessionStorage.getItem('username')!=null;
-  }
-  getrole(){
-    return sessionStorage.getItem('role')!=null?sessionStorage.getItem('role')?.toString():'';
-  }
-  Getaccessbyrole(role:any,menu:any){
-    return this.http.get('http://localhost:3000/roleaccess?role='+role+'&menu='+menu)
-  }
+  
+  // // User management ==> new service called userSevice not here!!!
+  // RegisterUser(inputdata:any){
+  //   return this.http.post(this.apiUrl,inputdata)
+  // }
+  // GetUserbyCode(id:any){
+  //   return this.http.get(this.apiUrl+'/'+id);
+  // }
+  // GetUserbyEmail(email:any){
+  //   return this.http.get(this.apiUrl+'?email='+email);
+  // }
+  // Getall(){
+  //   return this.http.get(this.apiUrl);
+  // }
+  // updateuser(id:any,inputdata:any){
+  //   return this.http.put(this.apiUrl+'/'+id,inputdata);
+  // }
+  // getuserrole(){
+  //   return this.http.get('http://localhost:3000/role');
+  // }
+  // isloggedin(){
+  //   return sessionStorage.getItem('username')!=null;
+  // }
+  // getrole(){
+  //   return sessionStorage.getItem('role')!=null?sessionStorage.getItem('role')?.toString():'';
+  // }
+  // Getaccessbyrole(role:any,menu:any){
+  //   return this.http.get('http://localhost:3000/roleaccess?role='+role+'&menu='+menu)
+  // }
 }

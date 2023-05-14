@@ -15,6 +15,8 @@ import { AddPageComponent } from './add-page/add-page.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { BacklinksComponent } from './backlinks/backlinks.component';
 import { ManageRobotsComponent } from './manage-robots/manage-robots.component';
+import { ManageSitemapComponent } from './manage-sitemap/manage-sitemap.component';
+import { UnauthPageComponent } from './unauth-page/unauth-page.component';
 
 const routes: Routes = [
   // without authGuard:
@@ -24,13 +26,16 @@ const routes: Routes = [
   //with authGuard:
   {component:RegisterComponent, path:'register',  canActivate: [AuthGuard, RoleGuard], data : {roles : ["admin"]} },
   {component:HomeComponent, path:'', canActivate: [AuthGuard]},
-  {component:UserListComponent, path:'users', canActivate: [AuthGuard]},
-  {component:KeywordThemeComponent, path:'keywords', canActivate: [AuthGuard]},
-  {component:PagesComponent, path:'pages', canActivate: [AuthGuard]},
-  {component:AddPageComponent, path:'add-page', canActivate: [AuthGuard]},
-  {component: DashboardComponent, path:'dashboard', canActivate: [AuthGuard]},
-  {component:BacklinksComponent, path:'backlinks', canActivate: [AuthGuard]},
-  {component:ManageRobotsComponent, path:'manage-robots', canActivate: [AuthGuard]},
+  {component:UserListComponent, path:'users', canActivate: [AuthGuard, RoleGuard], data : {roles : ["admin"]}},
+  {component:KeywordThemeComponent, path:'keywords', canActivate: [AuthGuard, RoleGuard], data : {roles : ["admin", "seo-specialist", "redactor"]}},
+  {component:PagesComponent, path:'pages', canActivate: [AuthGuard, RoleGuard], data : {roles : ["admin", "seo-specialist", "redactor"]}},
+  {component:AddPageComponent, path:'add-page', canActivate: [AuthGuard, RoleGuard], data : {roles : ["admin", "seo-specialist", "redactor"]}},
+  {component: DashboardComponent, path:'dashboard',canActivate: [AuthGuard, RoleGuard], data : {roles : ["admin", "seo-specialist"]}},
+  {component:BacklinksComponent, path:'backlinks', canActivate: [AuthGuard, RoleGuard], data : {roles : ["admin", "developer"]}},
+  {component:ManageRobotsComponent, path:'manage-robots', canActivate: [AuthGuard, RoleGuard], data : {roles : ["admin", "developer"]}},
+  {component:ManageSitemapComponent, path:'manage-sitemap', canActivate: [AuthGuard, RoleGuard], data : {roles : ["admin", "developer"]}},
+
+  {component: UnauthPageComponent, path:'unauthorized', canActivate: [AuthGuard]}
 ];
 
 @NgModule({

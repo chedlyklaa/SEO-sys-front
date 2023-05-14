@@ -1,0 +1,26 @@
+<div *ngIf="userRole != 'admin'">
+    <div class="card">
+        <div class="card-header">
+            <h1>Unauthorized</h1> 
+        </div>
+        <div class="card-body">
+            <mat-icon>warning</mat-icon>
+            <h5> As a {{userRole}}, you do not have access to this action</h5>
+            If you still think you can have access to this action please contact the admin.
+            <button (click)="sendEmail()" class="btn btn-warning">Contact admin</button>
+        </div>
+    </div>
+</div>
+<div *ngIf="userRole == 'admin'">
+    <div class="card">
+        <div class="card-header">
+            <h1>You are the admin</h1> 
+        </div>
+        <div class="card-body">
+            <mat-icon style="color:greenyellow;">manager</mat-icon>
+            <h5> As a {{userRole}}, you have access to all the actions of the system.</h5>
+            To manage accounts and to change roles, please consult User management feature.
+            <button routerLink="/users" class="btn btn-warning">User Management</button>
+        </div>
+    </div>
+</div>

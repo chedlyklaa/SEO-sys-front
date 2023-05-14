@@ -42,6 +42,8 @@ import {
 } from "ngx-ui-loader";
 import { BacklinksComponent } from './backlinks/backlinks.component';
 import { ManageRobotsComponent } from './manage-robots/manage-robots.component';
+import { ManageSitemapComponent } from './manage-sitemap/manage-sitemap.component';
+import { UnauthPageComponent } from './unauth-page/unauth-page.component';
 
 const ngxUiLoaderConfig: NgxUiLoaderConfig  =
 {
@@ -93,6 +95,8 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig  =
     PageUpdateComponent,
     BacklinksComponent,
     ManageRobotsComponent,
+    ManageSitemapComponent,
+    UnauthPageComponent,
   
     
   ],

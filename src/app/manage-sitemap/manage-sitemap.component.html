@@ -1,0 +1,69 @@
+<div class="card bg-light">
+    <h2>Generate Sitemap</h2>
+    <table class="table table-light table-striped table-hover">
+      <thead>
+        <tr>
+          <th>Links</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let page of pages">
+          <td>
+            <div class="checkbox-container">
+                <input  class="form-check-input" type="checkbox" [(ngModel)]="page.selected">
+              <label class="form-check-label">{{ page.url }}</label>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <button class="btn-warning" (click)="generateSitemap()">
+        <mat-icon>save</mat-icon> Generate Sitemap
+    </button>
+    <button class="btn-warning" (click)="isPopoverOpen = true">
+      <mat-icon>map</mat-icon> Preview sitemap 
+    </button>
+</div>
+    <div class="card2">
+      <div class="popover" *ngIf="isPopoverOpen" style="max-width: 500px">
+        <div class="popover-header" style="display: flex; justify-content: space-between;">
+          Sitemap Preview
+          <button
+            style="width: 30px; height: 30px; color: white; "
+            type="button"
+            class="close btn-warning"
+            aria-label="Close"
+            (click)="isPopoverOpen = false"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="popover-body">
+          <div class="logo">
+            <img src="../../assets/logo.svg" alt="logo">
+            <div class="text">
+                <p> <b>Ijeni</b><br>https://www.ijeni.tn</p>
+                <p></p>
+            </div>
+          </div>
+          <div class="popover-title">
+            <a href="{{ BaseLink }}" target="_blank "  style="text-decoration: none; color: #1a0dab;">
+              <h5 style="font-weight: bold;">{{ BaseLink }}</h5></a
+            >
+            <p>{{ BaseDiscription }}</p>
+          </div>
+          <div class="popover-body" *ngFor="let page of selectedPages">
+            <div class="popover-title">
+              <a
+                style="font-weight: bold; font-size: 20px; text-decoration: none; color: #1a0dab;"
+                href="{{ page.url }}"
+                target="_blank"
+                >{{ page.title }}</a
+              >
+            </div>
+            <p style="color: #4d5156;">{{ page?.metaDescription }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+

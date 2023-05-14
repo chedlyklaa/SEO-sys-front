@@ -17,6 +17,7 @@ export class AppComponent  {
   public dockSize: string = '72px';
   isLoggedIn : boolean
   username : string
+  role : string
   toggleClick() {
       this.dockBar.toggle();
        this.enableDock = !this.enableDock;
@@ -27,7 +28,7 @@ export class AppComponent  {
     this.authService.isLoggedIn().subscribe((loggedIn) => {
       this.isLoggedIn = loggedIn;
       this.username = JSON.parse(localStorage.getItem('user')!).username;
-      this.ngxLoader.stop
+      this.role = JSON.parse(localStorage.getItem('user')!).roles;
     });
     this.ngxLoader.stop()
   }
