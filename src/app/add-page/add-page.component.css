@@ -1,13 +1,4 @@
-.container{
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  color: rgb(29, 29, 29);
-  font-weight: bold;
-  text-align: center;
-  padding: 90px;
-}
+
 .card{
   position: absolute;
   left: 80%;
@@ -17,17 +8,21 @@
 }
 .card1
 {
-    margin: 20px;
+  text-align: left;
+
     position: absolute;
     top:50%;
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 25px;
     box-shadow: inset;
-    width: 50%;
+    width: 90%;
     height: 80%;
     border: 1px solid gray;
-
+    padding: 40px;
+    color: rgb(29, 29, 29);
+    font-weight: bold;
+  
 }
 
 .popover-header{
@@ -39,7 +34,7 @@ input {
     margin-bottom: 25px;
     height: 35px;
     border-radius: 20px;
-    border: none;
+    border: 1px solid rgb(201, 208, 255);
     background: #f2f2f2;
     padding: 10px;
     font-size: 14px;
@@ -48,7 +43,7 @@ input {
   button {
     color: rgb(37, 37, 37);
     font-weight: bold;
-    width:40%;
+    width:30%;
     margin-bottom: 25px;
     height: 40px;
     border-radius: 20px;

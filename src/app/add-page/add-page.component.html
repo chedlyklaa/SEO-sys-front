@@ -1,7 +1,6 @@
 <div class="card1 bg-light">
-  <div class="container">
-    <h2>Add a New Page</h2>
     <form (ngSubmit)="onSubmit()">
+      <h2 style="font-weight:bold;">Add a New Page</h2>
       <div class="form-group">
         <label for="url">URL</label>
         <input type="text" class="form-control" id="url" [(ngModel)]="page.url" name="url" required>
@@ -27,14 +26,12 @@
         <input type="text" class="form-control" id="ogDescription" [(ngModel)]="ogDescription" name="ogDescription" required>
       </div>
       <button type="submit" class="btn btn-primary">Add Page</button>
-
     </form>
     <button (click)="isPopoverOpen = true">Preview Social Media Appearance</button>
-  </div>
-
 </div>
+
 <div class="card">
-  <div class="popover" *ngIf="isPopoverOpen" style="max-width: 700px;">
+  <div class="popover" *ngIf="isPopoverOpen" style="max-width: 700px; width: 600px;">
     <div class="popover-header">Social Media Appearance Preview
       <button style="width: 30px; height:30px; color:white;" type="button" class="close" aria-label="Close" (click)="isPopoverOpen = false;">
         <span aria-hidden="true">&times;</span>
@@ -42,7 +39,7 @@
     </div>
     <div class="popover-body">
       <img [src]="ogImage" alt="previewImage" style="max-width: 100%;">
-      <div class="popover-title"><h3 style="font-weight: bold;">{{ogTitle}}</h3></div>
+      <div class="popover-title"><h4 style="font-weight: bold;">{{ogTitle}}</h4></div>
       <p>{{ogDescription}}</p>
     </div>
 

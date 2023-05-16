@@ -52,18 +52,14 @@ export class DashboardComponent {
         this.topQueriesClicks = response["clicks"]
         this.topQueriesImpressions = response["impressions"]
         this.topPages = response["top-pages"]
-        response["click-per-date"].forEach((clickPerDate : Object) => {
-          this.ClicksData.push(clickPerDate)
-        });
-        response["ctrPerDate"].forEach((ctrPerDate : Object) => {
-          this.CtrData.push(ctrPerDate)
-        })
+        this.ClicksData = response["click-per-date"].reverse()
+        this.CtrData = response['ctrPerDate'].reverse()
         this.topCountries = response['topCountries']
-        console.log(this.topCountries)
+        console.log(this.ClicksData)
+        console.log(this.CtrData)
 
       })
-      console.log(this.ClicksData)
-      console.log(this.CtrData)
+
       this.clickXAxis = {
         valueType: 'Category',
         title: 'Date'
