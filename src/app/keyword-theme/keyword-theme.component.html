@@ -23,6 +23,7 @@
       <input class="form-control" type="text" id="newTheme" [(ngModel)]="newTheme" name="newTheme" placeholder="new theme">
       <button class="btn btn-warning" (click)="addTheme()">Add Theme</button>
     </div>
+    <div class="error" name="error">{{error}}</div>
   </div>
     <h2 *ngIf="selectedKeywordTheme">{{selectedKeywordTheme.theme}} Keywords</h2> 
     <div *ngIf="selectedKeywordTheme">
@@ -50,7 +51,7 @@
           <button class="btn btn-warning" (click)="addKeyword()">Add Keyword</button>
         </div>
         <button class="btn btn-outline-warning mb-4" (click)="backToThemes()">Go back to themes</button>
-        <!-- <div class="error" [(ngModel)]="error" name="error">{{error}}</div> -->
+        <div class="error" name="error">{{error}}</div>
       </form>
     </div>
   </div>

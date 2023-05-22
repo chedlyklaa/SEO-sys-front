@@ -9,7 +9,8 @@ import { NgxUiLoaderService } from 'ngx-ui-loader';
   styleUrls: ['./manage-robots.component.css']
 })
 export class ManageRobotsComponent {
-  link: string ;
+  link: string = "";
+  error : string;
   constructor(private http: HttpClient, private robotsService: RobotsService, private router : Router, private ngxLoader : NgxUiLoaderService) { }
   links : string[] = []
   ngOnInit(): void {
@@ -36,6 +37,11 @@ export class ManageRobotsComponent {
     )}
   addLink() { 
     console.log(this.link)
+    if(this.link.trim() == ""){
+      this.error = "Empty field: enter a link"
+      return
+    }
+    this.error=""
     this.robotsService.addLink(this.link).subscribe(response => console.log(response), error => console.log(error))
     setTimeout(()=>{
       this.getlinks()    

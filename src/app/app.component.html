@@ -4,7 +4,7 @@
 <ejs-sidebar #dockBar id="dockSidebar"  [enableDock]='enableDock' [width]='width' [dockSize]='dockSize' *ngIf="isLoggedIn" >
     <div class="dock">
         <ul>
-            <li class="sidebar-item" style="display: flex; align-items: center;">
+            <li class="sidebar-item" routerLink="/" style="display: flex; align-items: center;">
                 <mat-icon>account_circle</mat-icon>
                 <div>
                     <span class="e-text"  [hidden]="!enableDock" title="account" style="color: orangered;">{{role}}</span><br>

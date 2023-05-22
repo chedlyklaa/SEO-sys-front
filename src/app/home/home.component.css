@@ -1,0 +1,87 @@
+.card{
+    width: 90%;
+    height: 80vh;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: left;
+    border-radius: 25px;
+
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+.left{
+    width: 50%;
+}
+.card-body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card-body > * > *{
+    margin: 60px;
+}
+h1{
+    font-weight: bold;
+}
+img {
+    width: 600px;
+}
+.role{
+    color: rgb(255, 149, 0);
+    font-weight: bold;
+}
+.btn-warning{
+    border-radius: 25px;
+    width: 300px;
+    height: 50px;
+    font-weight: bold;
+    font-size: 16px;
+}
+p{
+    margin-bottom: 0 !important;
+}
+.btn-outline-warning{
+    border-radius: 25px;
+    width: 200px;
+    height: 50px;
+    font-weight: bold;
+    font-size: 16px;
+}
+.buttons{
+    width: 300px;
+    margin-top: 50px;
+}
+.copyright{
+    width: 320px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    font-weight: bold;
+    position: absolute;
+    bottom: 5px;
+}
+.secondRow{
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.facebook{
+    margin-top: 7px;
+    color: black;
+    scale: 1.2;
+}
+
+.btn2{
+    width: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}

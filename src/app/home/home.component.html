@@ -1,2 +1,25 @@
-<h1>SEO Ijeni</h1>
-<p>Welcome to SEO Systeme Ijeni</p>
+<div class="card">
+    <div class="card-body">
+        <div class="left">
+            <h1>Welcome <span class="role">{{username}}</span> to the Ijeni's SEO System</h1>
+            <p *ngIf="userRole != 'admin'">You have a <span class="role">{{userRole}}</span> role, if you think you should have more access to the features of the system please conatanct the admin</p>
+            <p *ngIf="userRole == 'admin'">As a <span class="role">{{userRole}}</span>, you have access to all the actions of the system. To manage accounts and to change roles, please consult User management feature.</p>
+
+            <div class="buttons">
+                <button (click)="sendEmail()" class="btn btn-warning" *ngIf="userRole != 'admin'">Contact admin</button>
+                <button routerLink="/users" class="btn btn-warning" *ngIf="userRole == 'admin'">Manage users</button>
+                <div class="secondRow">
+                    <button class="btn btn-outline-warning"><a href="https://www.ijeni.tn"  target="_blank" >Visit Ijeni</a> </button>
+                    <button class="btn btn-outline-warning btn2"><a href="https://www.facebook.com/Ijeni.tn/" target="_blank"><mat-icon class="facebook">facebook</mat-icon></a></button>
+                </div>
+            </div>
+            <div class="copyright">
+                <mat-icon>copyright</mat-icon>
+                <p>|            Copyright 2023 - Ijeni SEO System dev team</p>
+            </div>
+        </div>
+        <div class="right">
+            <img src="../../assets/SEO-Image-copy.svg" alt="">
+        </div>
+    </div>
+</div>
