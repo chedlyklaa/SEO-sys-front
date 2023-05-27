@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { DashboardService } from '../service/dashboard.service';
 import { Router } from '@angular/router';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
@@ -6,6 +6,7 @@ import { NgxUiLoaderService } from 'ngx-ui-loader';
   selector: 'app-backlinks',
   templateUrl: './backlinks.component.html',
   styleUrls: ['./backlinks.component.css'],
+  encapsulation : ViewEncapsulation.Emulated
 })
 export class BacklinksComponent implements OnInit {
   backlinks: any[] = [];

@@ -1,7 +1,8 @@
 <div class="card">
     <div class="card-body">
         <div class="left">
-            <h1>Welcome <span class="role">{{username}}</span> to the Ijeni's SEO System</h1>
+            <h1>Welcome, <span class="role">{{username}}!
+            </span> to the Ijeni's SEO System</h1>
             <p *ngIf="userRole != 'admin'">You have a <span class="role">{{userRole}}</span> role, if you think you should have more access to the features of the system please conatanct the admin</p>
             <p *ngIf="userRole == 'admin'">As a <span class="role">{{userRole}}</span>, you have access to all the actions of the system. To manage accounts and to change roles, please consult User management feature.</p>
 

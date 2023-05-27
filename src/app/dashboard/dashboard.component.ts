@@ -31,9 +31,9 @@ export class DashboardComponent {
     topQueriesClicks : []
     topQueriesImpressions : []
     topPages : []
-    usersNumber : number
-    pagesNumber : number
-    themesNumber : number
+    usersNumber : number // not used in the interface...
+    pagesNumber : number // not used in the interface...
+    themesNumber : number // not used in the interface...
     ClicksData : Object[] = []
     CtrData : Object[] = []
     topCountries : string[]= []

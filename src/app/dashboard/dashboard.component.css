@@ -119,12 +119,12 @@ canvas {
   width: 3px;
   background-color: rgb(173, 173, 173);
 }
-.card{
+/* .card{
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-}
+} */
 
 
 .title{

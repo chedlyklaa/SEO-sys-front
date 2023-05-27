@@ -21,6 +21,7 @@ export class AppComponent  {
   toggleClick() {
       this.dockBar.toggle();
        this.enableDock = !this.enableDock;
+       console.log(this.enableDock)
   }
   constructor(private route:Router, private authService : AuthService, private ngxLoader : NgxUiLoaderService){}
   ngOnInit(){
